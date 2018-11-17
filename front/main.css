@@ -45,6 +45,17 @@ h1{
    
 }
 
+.yeButton{
+    background-image: -webkit-linear-gradient(135deg, #EF3636, #E2bb34);
+    background-image: -ms-linear-gradient(135deg, #EF3636, #E2bb34);
+    background-image: -o-linear-gradient(135deg, #EF3636, #E2bb34);
+    background-image: -moz-linear-gradient(135deg, #EF3636, #E2bb34);
+    background-image: linear-gradient(135deg, #EF3636, #E2bb34);
+    color: #fff;
+    border: none;
+    
+}
+
 .grButton{
     background-image: -webkit-linear-gradient(45deg, #35d8cc, #27d853);
     background-image: -ms-linear-gradient(45deg, #35d8cc, #27d853);
@@ -55,6 +66,17 @@ h1{
     border: none;
     
 }
+.bluButton{
+    background-image: -webkit-linear-gradient(45deg, #35C9FF, #7537E7);
+    background-image: -ms-linear-gradient(45deg, #35C9FF, #7537E7);
+    background-image: -o-linear-gradient(45deg, #35C9FF, #7537E7);
+    background-image: -moz-linear-gradient(45deg, #35C9FF, #7537E7);
+    background-image: linear-gradient(315deg, #35C9FF, #7537E7);
+    color: #fff;
+    border: none;
+    
+}
+
 .margins{
     margin: 10px;
 }
@@ -86,10 +108,13 @@ h1{
     width: 25%;
 }
 .inner-33{
-    width: 33%;
+    width: 33%; 
+}
+.inner-50{
+    width: 50%;
 }
 .inner-66{
-    width: 66%;
+    width: 67%; /*So that the sum is 100%*/
 }
 .inner-75{
     
@@ -109,6 +134,9 @@ h1{
 
 }
 
+.header{
+    height: 15%;
+}
 .entryRow{
     height: 20%;
     padding-bottom: 0;
@@ -116,6 +144,12 @@ h1{
     
 }
 .largeButton{
-    font-size: 64px !important;
+    font-size: 48px !important;
     height: auto;
+}
+.base{
+    height: 25%;
+}
+.baseButton{
+    height:50%;
 }
