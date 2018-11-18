@@ -25,6 +25,8 @@ h1{
 
 }
 
+
+
 #loader{
     height: 100%;
     width: 0px;
@@ -34,6 +36,7 @@ h1{
     background-color: #f17171;
     z-index: 999;
 }
+
 
 .button{
     font-weight: 100 !important;
