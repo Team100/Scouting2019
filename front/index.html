@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="main.css">
-
         <!-- UIkit CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css" />
 
@@ -14,11 +13,27 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
     </head>
     <body>
-        <div id="login">
+    <div id="login">
+        <div class="inner-75 abs-center ds-large card">
+
+            <div class="margins">
+                <h1>Login</h1>
+                <!-- TO DO Ensure that this input method works-->
+                <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Scouter ID">
+                <br />
+                <br />
+                <br />
+
+            </div>
+            <button class="button orButton inner-100" onclick="goToMetadata()">Log In</button>
+
+        </div>
+    </div>
+        <div id="metadata">
             <div class="inner-75 abs-center ds-large card">
                 
                 <div class="margins">
-                    <h1>Login</h1>
+                    <h1>Metadata</h1>
                     <!-- TO DO Ensure that this input method works-->
                     <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Match #">
                     <br />
@@ -32,25 +47,22 @@
 
 
                 </div>
-                <button class="button orButton inner-100">Log In</button>
+                <button class="button orButton inner-100" onclick="startMatch()">START</button>
 
             </div>
         </div>
-        <div id="dataEntry">
+        <div id="auton">
             <div class="header">
                 <h1>Auton @ 10 sec</h1>
             </div>
             <div id="row0" class="entryRow">
-                <p class="centerText">Switch</p>
-                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">+</button>
+                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">SWTCH</button>
             </div>
             <div id="row1" class="entryRow">
-                <p class="centerText">Scale</p>
-                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">+</button>
+                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">SCALE</button>
             </div>
             <div id="row2" class="entryRow">
-                    <p class="centerText">Exchange</p>
-                    <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">+</button>
+                    <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">EXCHA</button>
             </div>
             <div id="base">
                 <button class="yeButton inner-33 largeButton baseButton">DISAB</button><span class="inner-33">&nbsp;</span><button class="bluButton inner-33 largeButton baseButton floatRight">BROW</button>
@@ -58,9 +70,11 @@
                 <br />
                
                 
-                <button class="grButton inner-33 largeButton baseButton">BREK</button><span class="inner-33">&nbsp;</span><button class="orButton inner-33 largeButton baseButton floatRight">CTL</button>
+                <button class="grButton inner-33 largeButton baseButton">BREAK</button><span class="inner-33">&nbsp;</span><button class="orButton inner-33 largeButton baseButton floatRight">CTL</button>
 
             </div>
         </div>
+        <script src="main.js"></script>
+
     </body>
 </html>

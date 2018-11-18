@@ -16,13 +16,19 @@ h1{
     font-weight: 100;
 }
 
-#login, #dataEntry{
+#login, #auton{
     height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position:fixed;
 
 }
 
 .button{
     font-weight: 100 !important;
+    text-align: center !important;
+    align-items: center;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -42,9 +48,6 @@ h1{
     color: #fff;
     border: none;
 
-    
-   
-   
 }
 
 .yeButton{
@@ -116,7 +119,7 @@ h1{
     width: 50%;
 }
 .inner-66{
-    width: 67%; /*So that the sum is 100%*/
+    width: 66%; /*So that the sum is 100%*/
 }
 .inner-75{
     
@@ -147,7 +150,7 @@ h1{
 }
 .largeButton{
     font-size: 48px !important;
-    height: 60%;
+    height: 90%;
 }
 .base{
     height: 25%;
