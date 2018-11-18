@@ -25,6 +25,16 @@ h1{
 
 }
 
+#loader{
+    height: 100%;
+    width: 0px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: #f17171;
+    z-index: 999;
+}
+
 .button{
     font-weight: 100 !important;
     text-align: center !important;
