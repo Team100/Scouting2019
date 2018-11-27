@@ -1,63 +1,96 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Team 100 Scouting</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>Team 100 Scouting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="main.css">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css"/>
 
-        <!-- UIkit CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
 
-        <!-- UIkit JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
-    </head>
-    <body>
-        <div id="login">
-            <div class="inner-75 abs-center ds-large card">
-                
-                <div class="margins">
-                    <h1>Login</h1>
-                    <!-- TO DO Ensure that this input method works-->
-                    <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Match #">
-                    <br />
-                    <br />
-                    <br />
-                    <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Team #">
-                    <br />
-                    <br />
-                    <br />
-                    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+    <link rel="stylesheet" href="main.css">
 
-                </div>
-                <button class="button orButton inner-100">Log In</button>
+    <script src="anime.js"></script>
 
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="loader" style="width: 0%">&nbsp;</div>
+    <div id="login">
+        <div style="height:30%"></div>
+        <div class="inner-75 abs-center ds-large card">
+            <div class="margins">
+                <h2 class="uk-card-title">Login:</h2>
+                <!-- TO DO Ensure that this input method works-->
+                <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Student ID">
+                <br>
+                <br>
+            </div>
+            <button class="button orButton inner-100" onclick="goToMatchSetUp()">Log In</button>
+        </div>
+    </div>
+
+    <div id="match-setup">
+        <div style="height:10%"></div>
+        <div class="inner-75 abs-center ds-large card">
+            <div class="margins">
+                <h2 class="uk-card-title">Pre Match</h2>
+                <!-- TO DO Ensure that this input method works-->
+                <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Match #">
+                <br>
+                <br>
+                <br>
+                <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Team #">
+                <br>
+                <br>
+                <br>
+            </div>
+            <button class="button orButton inner-100" onclick="startMatch()">Start</button>
+        </div>
+    </div>
+    <div id="data-entry">
+        <div class="header">
+            <h1>Auton @ 10 sec</h1>
+        </div>
+        <div id="row0" class="entryRow">
+            <p class="centerText">Switch:
+            <div id="switch-count"></div>
+            </p>
+            <div class="container-incr">
+                <button class="orButton largeButton" style="flex-grow: 1"><i class="material-icons">remove</i></button>
+                <button class="grButton largeButton" style="flex-grow: 2"><i class="material-icons">add</i></button>
             </div>
         </div>
-        <div id="dataEntry">
-            <div class="header">
-                <h1>Auton @ 10 sec</h1>
-            </div>
-            <div id="row0" class="entryRow">
-                <p class="centerText">Switch</p>
-                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">+</button>
-            </div>
-            <div id="row1" class="entryRow">
-                <p class="centerText">Scale</p>
-                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">+</button>
-            </div>
-            <div id="row2" class="entryRow">
-                    <p class="centerText">Exchange</p>
-                    <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">+</button>
-            </div>
-            <div id="base">
-                <button class="yeButton inner-50 largeButton baseButton">DISAB</button><button class="bluButton inner-50 largeButton baseButton">BROW</button>
-                <br />
-                <button class="grButton inner-50 largeButton baseButton">BREK</button><button class="orButton inner-50 largeButton baseButton">CTL</button>
-
+        <div id="row1" class="entryRow">
+            <p class="centerText">Scale:
+            <div id="scale-count"></div>
+            </p>
+            <div class="container-incr">
+                <button class="orButton largeButton" style="flex-grow: 1"><i class="material-icons">remove</i></button>
+                <button class="grButton largeButton" style="flex-grow: 2"><i class="material-icons">add</i></button>
             </div>
         </div>
-    </body>
+        <div id="row2" class="entryRow">
+            <p class="centerText">Exchange:
+            <div id="exchange-count"></div>
+            </p>
+            <div class="container-incr">
+                <button class="orButton largeButton" style="flex-grow: 1"><i class="material-icons">remove</i></button>
+                <button class="grButton largeButton" style="flex-grow: 2"><i class="material-icons">add</i></button>
+            </div>
+        </div>
+        <br>
+        <div id="base" class="container-block">
+            <button class="yeButton largeButton baseButton" style="flex-grow: 1">DISAB</button>
+            <button class="bluButton largeButton baseButton" style="flex-grow: 1">BROW</button>
+            <button class="grButton largeButton baseButton" style="flex-grow: 1">BREK</button>
+            <button class="orButton largeButton baseButton" style="flex-grow: 1">CTL</button>
+        </div>
+    </div>
+</body>
 </html>
