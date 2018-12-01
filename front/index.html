@@ -1,94 +1,107 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Team 100 Scouting</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>Team 100 Scouting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="main.css">
-        <!-- UIkit CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css" />
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css"/>
 
-        <!-- UIkit JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
-    </head>
-    <body>
-    <div id="loader" style="width: 0%">
-        &nbsp;
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="main.css">
+
+    <script src="anime.js"></script>
+    <script src="qrcode.min.js"></script>
+
+
+    <script src="script.js"></script>
+</head>
+<body>
+<div id="loader" style="width: 0%">&nbsp;</div>
+<div id="login">
+    <div style="height:30%"></div>
+    <div class="inner-75 abs-center ds-large card">
+        <div class="margins">
+            <h2 class="uk-card-title">Login:</h2>
+            <!-- TO DO Ensure that this input method works-->
+            <input id="studid" class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*"
+                   placeholder="Student ID">
+            <br>
+            <br>
+        </div>
+        <button class="button orButton inner-100" onclick="goToMatchSetUp()">Log In</button>
     </div>
-    <div id="login">
-        <div class="inner-75 abs-center ds-large card">
+</div>
 
-            <div class="margins">
-                <h1>Login</h1>
-                <!-- TO DO Ensure that this input method works-->
-                <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Scouter ID">
-                <br />
-                <br />
-                <br />
-
-            </div>
-            <button class="button orButton inner-100" onclick="goToMetadata()">Log In</button>
-
+<div id="match-setup">
+    <div style="height:10%"></div>
+    <div class="inner-75 abs-center ds-large card">
+        <div class="margins">
+            <h2 class="uk-card-title">Pre Match</h2>
+            <!-- TO DO Ensure that this input method works-->
+            <input id="matchnum" class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*"
+                   placeholder="Match #">
+            <br>
+            <br>
+            <br>
+            <input id="teamnum" class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*"
+                   placeholder="Team #">
+            <br>
+            <br>
+            <br>
         </div>
+        <button class="button orButton inner-100" onclick="startMatch()">Start</button>
     </div>
-        <div id="metadata">
-            <div class="inner-75 abs-center ds-large card">
-                
-                <div class="margins">
-                    <h1>Metadata</h1>
-                    <!-- TO DO Ensure that this input method works-->
-                    <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Match #">
-                    <br />
-                    <br />
-                    <br />
-                    <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Team #">
-                    <br />
-                    <br />
-                    <br />
-                    
-
-
-                </div>
-                <button class="button orButton inner-100" onclick="startMatch()">START</button>
-
-            </div>
-        </div>
-        <div id="auton">
-            <div class="header">
-                <h1>Auton @ 10 sec</h1>
-            </div>
-            <div id="row0" class="entryRow">
-                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">SWTCH</button>
-            </div>
-            <div id="row1" class="entryRow">
-                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">SCALE</button>
-            </div>
-            <div id="row2" class="entryRow">
-                    <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">EXCHA</button>
-            </div>
-            <div id="base">
-                <button class="yeButton inner-33 largeButton baseButton">DISAB</button><span class="inner-33">&nbsp;</span><button class="bluButton inner-33 largeButton baseButton floatRight">BROW</button>
-                <br />
-                <br />
-               
-                
-                <button class="grButton inner-33 largeButton baseButton">BREAK</button><span class="inner-33">&nbsp;</span><button class="orButton inner-33 largeButton baseButton floatRight">CTL</button>
-
-            </div>
-        </div>
-
-    <div id="wowPage">
-        <div id="wowText">
-            <svg width="100%" height="100%" viewBox="0 0 4000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-miterlimit:1.41421;"><path d="M430.25,827.6l2.6,0l231.4,-787.8l111.8,0l231.4,787.8l2.6,0l218.4,-787.8l104,0l-271.7,920.4l-109.2,0l-231.4,-787.8l-2.6,0l-231.4,787.8l-109.2,0l-271.7,-920.4l104,0l221,787.8Z" style="fill:none;stroke:#fff;stroke-width:14px;"/><path d="M2252.85,500c0,-52.867 -8.667,-103.35 -26,-151.45c-17.333,-48.1 -42.25,-90.35 -74.75,-126.75c-32.5,-36.4 -72.15,-65.433 -118.95,-87.1c-46.8,-21.667 -99.667,-32.5 -158.6,-32.5c-58.933,0 -111.8,10.833 -158.6,32.5c-46.8,21.667 -86.45,50.7 -118.95,87.1c-32.5,36.4 -57.417,78.65 -74.75,126.75c-17.333,48.1 -26,98.583 -26,151.45c0,52.867 8.667,103.35 26,151.45c17.333,48.1 42.25,90.35 74.75,126.75c32.5,36.4 72.15,65.433 118.95,87.1c46.8,21.667 99.667,32.5 158.6,32.5c58.933,0 111.8,-10.833 158.6,-32.5c46.8,-21.667 86.45,-50.7 118.95,-87.1c32.5,-36.4 57.417,-78.65 74.75,-126.75c17.333,-48.1 26,-98.583 26,-151.45Zm101.4,0c0,70.2 -12.133,134.767 -36.4,193.7c-24.267,58.933 -57.85,109.85 -100.75,152.75c-42.9,42.9 -93.6,76.483 -152.1,100.75c-58.5,24.267 -121.983,36.4 -190.45,36.4c-68.467,0 -131.95,-12.133 -190.45,-36.4c-58.5,-24.267 -109.2,-57.85 -152.1,-100.75c-42.9,-42.9 -76.483,-93.817 -100.75,-152.75c-24.267,-58.933 -36.4,-123.5 -36.4,-193.7c0,-70.2 12.133,-134.767 36.4,-193.7c24.267,-58.933 57.85,-109.85 100.75,-152.75c42.9,-42.9 93.6,-76.483 152.1,-100.75c58.5,-24.267 121.983,-36.4 190.45,-36.4c68.467,0 131.95,12.133 190.45,36.4c58.5,24.267 109.2,57.85 152.1,100.75c42.9,42.9 76.483,93.817 100.75,152.75c24.267,58.933 36.4,123.5 36.4,193.7Z" style="fill:none;stroke:#fff;stroke-width:14px;"/><path d="M2741.65,827.6l2.6,0l231.4,-787.8l111.8,0l231.4,787.8l2.6,0l218.4,-787.8l104,0l-271.7,920.4l-109.2,0l-231.4,-787.8l-2.6,0l-231.4,787.8l-109.2,0l-271.7,-920.4l104,0l221,787.8Z" style="fill:none;stroke:#fff;stroke-width:14px;"/><path d="M3894.75,897.8c0,18.2 -6.5,34.45 -19.5,48.75c-13,14.3 -29.9,21.45 -50.7,21.45c-20.8,0 -37.7,-7.15 -50.7,-21.45c-13,-14.3 -19.5,-30.55 -19.5,-48.75c0,-18.2 6.5,-34.45 19.5,-48.75c13,-14.3 29.9,-21.45 50.7,-21.45c20.8,0 37.7,7.15 50.7,21.45c13,14.3 19.5,30.55 19.5,48.75Zm-23.4,-187.2l-93.6,0l0,-670.8l93.6,0l0,670.8Z" style="fill:none;stroke:#fff;stroke-width:14px;"/></svg>
+</div>
+<div id="data-entry">
+    <div class="inner-100 abs-center ds-large card shadow">
+        <div class="header">
+            <h1><span id="mode">Autonomous: </span><span id="time">30.0</span></h1>
         </div>
     </div>
-
-
-
-    <script src="lib/anime.min.js"></script>
-    <script src="main.js"></script>
-
-    </body>
+    <div id="row0" class="entryRow">
+        <p class="centerText">Switch: <span id="switch-count">0</span></p>
+        <div class="container-incr">
+            <button onclick="updateSwitchCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="material-icons">remove</i></button>
+            <button onclick="updateSwitchCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="material-icons">add</i></button>
+        </div>
+    </div>
+    <div id="row1" class="entryRow">
+        <p class="centerText">Scale: <span id="scale-count">0</span></p>
+        <div class="container-incr">
+            <button onclick="updateScaleCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="material-icons">remove</i></button>
+            <button onclick="updateScaleCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="material-icons">add</i></button>
+        </div>
+    </div>
+    <div id="row2" class="entryRow">
+        <p class="centerText">Exchange: <span id="exchange-count">0</span></p>
+        <div class="container-incr">
+            <button onclick="updateExchangeCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="material-icons">remove</i></button>
+            <button onclick="updateExchangeCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="material-icons">add</i></button>
+        </div>
+    </div>
+    <div id="base" class="container-block">
+        <button class="yeButton largeButton baseButton" style="flex-grow: 1">DISABLE</button>
+        <button class="bluButton largeButton baseButton" style="flex-grow: 1">BROWNOUT</button>
+        <button class="grButton largeButton baseButton" style="flex-grow: 1">BREAK</button>
+        <button class="orButton largeButton baseButton" style="flex-grow: 1">CROSSLINE</button>
+    </div>
+</div>
+<div id="endPos">
+    <h1 class="centerText">END POS</h1>
+    <button class="yeButton largeButton inner-100 entryRow" id="ep-assist-climb">Assist Climb</button>
+    <button class="orButton largeButton inner-100 entryRow" id="ep-self-climb">Self-Climb</button>
+    <button class="bluButton largeButton inner-100 entryRow" id="ep-assisted-climb">Assist<b>ed</b> climb</button>
+    <button class="grButton largeButton inner-100 entryRow" id="ep-none">None</button>
+</div>
+<div id="qr">
+    <div id="qrcode"></div>
+    <button class="orButton largeButton inner-100 entryRow" id="qr-done">Done</button>
+</div>
+</body>
 </html>
