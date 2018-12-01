@@ -1,3 +1,4 @@
+
 var counter = 0;
 
 var pages = {
@@ -5,7 +6,7 @@ var pages = {
     METADATA:"metadata",
     AUTON:"auton",
     WOW: "wowPage"
-};
+}
 var page;
 
 var currentLoaderWidth = 0;
