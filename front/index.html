@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Team 100 Scouting</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Team 100 Scouting</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css"/>
+        <link rel="stylesheet" href="main.css">
 
-    <!-- UIkit JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- UIkit JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
+    </head>
+    <body>
+        <div id="login">
+            <div class="inner-75 abs-center ds-large card">
+                
+                <div class="margins">
+                    <h1>Login</h1>
+                    <!-- TO DO Ensure that this input method works-->
+                    <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Match #">
+                    <br />
+                    <br />
+                    <br />
+                    <input class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="Team #">
+                    <br />
+                    <br />
+                    <br />
+                    
 
-    <link rel="stylesheet" href="main.css">
 
-    <script src="anime.js"></script>
+                </div>
+                <button class="button orButton inner-100">Log In</button>
 
+<<<<<<< HEAD
     <script src="script.js"></script>
 </head>
 <body>
@@ -97,3 +115,32 @@
 </div>
 </body>
 </html>
+=======
+            </div>
+        </div>
+        <div id="dataEntry">
+            <div class="header">
+                <h1>Auton @ 10 sec</h1>
+            </div>
+            <div id="row0" class="entryRow">
+                <p class="centerText">Switch</p>
+                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">+</button>
+            </div>
+            <div id="row1" class="entryRow">
+                <p class="centerText">Scale</p>
+                <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">+</button>
+            </div>
+            <div id="row2" class="entryRow">
+                    <p class="centerText">Exchange</p>
+                    <button class="orButton inner-33 largeButton">-</button><button class="grButton inner-66 largeButton">+</button>
+            </div>
+            <div id="base">
+                <button class="yeButton inner-50 largeButton baseButton">DISAB</button><button class="bluButton inner-50 largeButton baseButton">BROW</button>
+                <br />
+                <button class="grButton inner-50 largeButton baseButton">BREK</button><button class="orButton inner-50 largeButton baseButton">CTL</button>
+
+            </div>
+        </div>
+    </body>
+</html>
+>>>>>>> parent of c34efbe... Optimize/Simplify

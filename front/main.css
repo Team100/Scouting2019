@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-html, body {
+html, body{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -8,25 +8,37 @@ html, body {
     right: 0;
     top: 0;
     bottom: 0;
+<<<<<<< HEAD
     background-color: #ffffff;
+=======
+>>>>>>> parent of c34efbe... Optimize/Simplify
     font-family: 'Open Sans', sans-serif;
 }
 
-h1 {
+h1{
     font-size: 48px;
     font-weight: 100;
 }
 
+<<<<<<< HEAD
 .debug {
     background-color: blue;
 }
 
 #login, #match-setup, #data-entry {
+=======
+#login, #dataEntry{
+>>>>>>> parent of c34efbe... Optimize/Simplify
     height: 100%;
+
 }
 
+<<<<<<< HEAD
 .button {
     background-color: transparent;
+=======
+.button{
+>>>>>>> parent of c34efbe... Optimize/Simplify
     font-weight: 100 !important;
     padding: 15px 32px;
     text-align: center;
@@ -36,153 +48,137 @@ h1 {
     cursor: pointer;
 }
 
-.orButton {
-    background-image: -webkit-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
-    background-image: -moz-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
-    background-image: -ms-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
-    background-image: -o-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
-    background-image: linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+.orButton{
+    background-image: -webkit-linear-gradient(45deg, #F17C35, #E2336E);
+    background-image: -moz-linear-gradient(45deg, #F17C35, #E2336E);
+    background-image: -ms-linear-gradient(45deg, #F17C35, #E2336E);
+    background-image: -o-linear-gradient(45deg, #F17C35, #E2336E);
+    background-image: linear-gradient(315deg, #F17C35, #E2336E);
     color: #fff;
     border: none;
+
+    
+   
+   
 }
 
-.orButton:active {
-    background-image: -webkit-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
-    background-image: -moz-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
-    background-image: -ms-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
-    background-image: -o-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
-    background-image: linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
-}
-
-.yeButton {
-    background-image: -webkit-linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
-    background-image: -moz-linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
-    background-image: -ms-linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
-    background-image: -o-linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
-    background-image: linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
+.yeButton{
+    background-image: -webkit-linear-gradient(135deg, #EF3636, #E2bb34);
+    background-image: -ms-linear-gradient(135deg, #EF3636, #E2bb34);
+    background-image: -o-linear-gradient(135deg, #EF3636, #E2bb34);
+    background-image: -moz-linear-gradient(135deg, #EF3636, #E2bb34);
+    background-image: linear-gradient(135deg, #EF3636, #E2bb34);
     color: #fff;
     border: none;
+    
 }
 
-.yeButton:active {
-    background-image: -webkit-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
-    background-image: -moz-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
-    background-image: -ms-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
-    background-image: -o-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
-    background-image: linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
-}
-
-.grButton {
-    background-image: -webkit-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
-    background-image: -moz-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
-    background-image: -ms-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
-    background-image: -o-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
-    background-image: linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+.grButton{
+    background-image: -webkit-linear-gradient(45deg, #35d8cc, #27d853);
+    background-image: -ms-linear-gradient(45deg, #35d8cc, #27d853);
+    background-image: -o-linear-gradient(45deg, #35d8cc, #27d853);
+    background-image: -moz-linear-gradient(45deg, #35d8cc, #27d853);
+    background-image: linear-gradient(315deg, #35d8cc, #27d853);
     color: #fff;
     border: none;
+    
 }
-
-.grButton:active {
-    background-image: -webkit-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
-    background-image: -moz-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
-    background-image: -ms-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
-    background-image: -o-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
-    background-image: linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
-}
-
-.bluButton {
-    background-image: -webkit-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
-    background-image: -moz-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
-    background-image: -ms-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
-    background-image: -o-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
-    background-image: linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+.bluButton{
+    background-image: -webkit-linear-gradient(45deg, #35C9FF, #7537E7);
+    background-image: -ms-linear-gradient(45deg, #35C9FF, #7537E7);
+    background-image: -o-linear-gradient(45deg, #35C9FF, #7537E7);
+    background-image: -moz-linear-gradient(45deg, #35C9FF, #7537E7);
+    background-image: linear-gradient(315deg, #35C9FF, #7537E7);
     color: #fff;
     border: none;
+    
 }
 
-.bluButton:active {
-    background-image: -webkit-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
-    background-image: -moz-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
-    background-image: -ms-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
-    background-image: -o-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
-    background-image: linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
-}
-
-.margins {
+.margins{
     margin: 10px;
 }
+<<<<<<< HEAD
 
 .horiz-center {
+=======
+.debug{
+    background-color: #00ff00;
+}
+
+.horiz-center{
+>>>>>>> parent of c34efbe... Optimize/Simplify
     margin: 0;
     position: fixed;
     top: 0%;
     left: 50%;
     transform: translate(0, -50%);
+    
+}
+.abs-center{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.abs-center {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.centerText {
+.centerText{
     text-align: center;
 }
-
-.inner-25 {
+.inner-25{
+    
     width: 25%;
 }
-
-.inner-33 {
-    width: 33%;
+.inner-33{
+    width: 33%; 
 }
-
-.inner-50 {
+.inner-50{
     width: 50%;
 }
-
-.inner-66 {
+.inner-66{
     width: 67%; /*So that the sum is 100%*/
 }
-
-.inner-75 {
+.inner-75{
+    
     width: 75%;
 }
-
-.inner-100 {
+.inner-100{
+    
     width: 100%;
 }
+<<<<<<< HEAD
 
 .ds-large {
     box-shadow: 0px 12px 35px #888888;
+=======
+.ds-large{
+    
+    box-shadow: 0px 25px 70px #888888;
+>>>>>>> parent of c34efbe... Optimize/Simplify
 }
 
-.card {
+
+.card{
 
 }
 
-.header {
+.header{
     height: 15%;
-    width: 100%;
-    text-align: center;
 }
-
-.entryRow {
+.entryRow{
     height: 20%;
     padding-bottom: 0;
     margin-bottom: 0;
-    width: 100%;
+    
 }
-
-.largeButton {
+.largeButton{
     font-size: 48px !important;
     height: auto;
-    vertical-align: middle;
 }
-
-.base {
+.base{
     height: 25%;
 }
+<<<<<<< HEAD
 
 .baseButton {
     height: 50%;
@@ -250,14 +246,8 @@ h1 {
 
 .uk-card-title {
     padding-top: 8px;
-}
-
-#loader{
-    height: 100%;
-    width: 0px;
-    left: 0;
-    top: 0;
-    position: absolute;
-    background-color: #f17171;
-    z-index: 999;
+=======
+.baseButton{
+    height:50%;
+>>>>>>> parent of c34efbe... Optimize/Simplify
 }
