@@ -9,7 +9,10 @@ html, body{
     top: 0;
     bottom: 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-color: #ffffff;
+=======
+>>>>>>> parent of c34efbe... Optimize/Simplify
 =======
 >>>>>>> parent of c34efbe... Optimize/Simplify
     font-family: 'Open Sans', sans-serif;
@@ -21,6 +24,7 @@ h1{
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .debug {
     background-color: blue;
 }
@@ -29,13 +33,20 @@ h1{
 =======
 #login, #dataEntry{
 >>>>>>> parent of c34efbe... Optimize/Simplify
+=======
+#login, #dataEntry{
+>>>>>>> parent of c34efbe... Optimize/Simplify
     height: 100%;
 
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .button {
     background-color: transparent;
+=======
+.button{
+>>>>>>> parent of c34efbe... Optimize/Simplify
 =======
 .button{
 >>>>>>> parent of c34efbe... Optimize/Simplify
@@ -98,14 +109,20 @@ h1{
     margin: 10px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 .horiz-center {
 =======
+=======
+>>>>>>> parent of c34efbe... Optimize/Simplify
 .debug{
     background-color: #00ff00;
 }
 
 .horiz-center{
+<<<<<<< HEAD
+>>>>>>> parent of c34efbe... Optimize/Simplify
+=======
 >>>>>>> parent of c34efbe... Optimize/Simplify
     margin: 0;
     position: fixed;
@@ -147,9 +164,15 @@ h1{
     width: 100%;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 .ds-large {
     box-shadow: 0px 12px 35px #888888;
+=======
+.ds-large{
+    
+    box-shadow: 0px 25px 70px #888888;
+>>>>>>> parent of c34efbe... Optimize/Simplify
 =======
 .ds-large{
     
@@ -178,6 +201,7 @@ h1{
 .base{
     height: 25%;
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 .baseButton {
@@ -246,6 +270,10 @@ h1 {
 
 .uk-card-title {
     padding-top: 8px;
+=======
+.baseButton{
+    height:50%;
+>>>>>>> parent of c34efbe... Optimize/Simplify
 =======
 .baseButton{
     height:50%;
