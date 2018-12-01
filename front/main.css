@@ -8,13 +8,20 @@ html, body {
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: #161616;
+    background-color: #ffffff;
     font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
+    padding-top: 15px;
+    padding-bottom: auto;
     font-size: 48px;
-    font-weight: 100;
+    font-weight: 200;
+}
+
+#time {
+    font-family: "Courier New";
+    font-weight: lighter;
 }
 
 #login, #match-setup, #data-entry {
@@ -41,12 +48,13 @@ h1 {
     border: none;
 }
 
-.orButton:active {
+.orButtons {
     background-image: -webkit-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
     background-image: -moz-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
     background-image: -ms-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
     background-image: -o-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
     background-image: linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
+    filter: brightness(0.8);
 }
 
 .yeButton {
@@ -59,12 +67,13 @@ h1 {
     border: none;
 }
 
-.yeButton:active {
+.yeButtons {
     background-image: -webkit-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
     background-image: -moz-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
     background-image: -ms-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
     background-image: -o-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
     background-image: linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
+    filter: brightness(0.7);
 }
 
 .grButton {
@@ -77,12 +86,13 @@ h1 {
     border: none;
 }
 
-.grButton:active {
+.grButtons {
     background-image: -webkit-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
     background-image: -moz-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
     background-image: -ms-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
     background-image: -o-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
     background-image: linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
+    filter: brightness(0.8);
 }
 
 .bluButton {
@@ -95,12 +105,13 @@ h1 {
     border: none;
 }
 
-.bluButton:active {
+.bluButtons {
     background-image: -webkit-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
     background-image: -moz-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
     background-image: -ms-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
     background-image: -o-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
     background-image: linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
+    filter: brightness(0.5);
 }
 
 .margins {
@@ -153,7 +164,11 @@ h1 {
 }
 
 .ds-large {
-    box-shadow: 0px 12px 35px #000000;
+    box-shadow: 0px 12px 35px #888888;
+}
+
+.shadow {
+    box-shadow: 0px 7px 15px #e4e4e4;
 }
 
 .card {
@@ -177,6 +192,7 @@ h1 {
     font-size: 48px !important;
     height: auto;
     vertical-align: middle;
+    font-weight: 300;
 }
 
 .base {
@@ -189,20 +205,20 @@ h1 {
 
 h2 {
     font-weight: normal;
-    color: #ffffff;
+    color: #464646;
     font-family: Gotham SSm A, Gotham SSm B, Helvetica, Arial, sans-serif;
 }
 
 .uk-input, .uk-input:focus {
     border-width: 2px;
-    border-color: #555555;
-    color: #ffffff;
-    background: #161616;
+    border-color: #CBCBCB;
+    color: #000000;
+    background: #ffffff;
 }
 
 .uk-input:focus {
     border-width: 2px;
-    border-color: #cbcbcb;
+    border-color: #7f7f7f;
 }
 
 textarea:focus, input:focus, button:focus {
@@ -221,6 +237,7 @@ textarea:focus, input:focus, button:focus {
 
 .container-incr {
     width: 100%;
+    height: 70%;
     display: flex;
     align-items: stretch;
     justify-content: stretch;
@@ -228,11 +245,15 @@ textarea:focus, input:focus, button:focus {
 }
 
 .container-block {
+    position: absolute;
+    bottom: 0px;
+    height: 18%;
     width: 100%;
     display: flex;
     align-items: stretch;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    margin-bottom: 0px;
 }
 
 .container-block button {
@@ -240,13 +261,10 @@ textarea:focus, input:focus, button:focus {
 }
 
 p {
-    font-size: 20px;
-    color: #eeeeee;
-}
-
-i {
-    margin-bottom: 20px;
     margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: #333333;
 }
 
 .material-icons {
@@ -254,7 +272,7 @@ i {
 }
 
 h1 {
-    color: #ffffff;
+    color: #000000;
 }
 
 .uk-card-title {
