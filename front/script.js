@@ -2,30 +2,59 @@ var pages = {
     LOGIN: "login",
     MATCHSETUP: "match-setup",
     DATAENTRY: "data-entry",
-    WOW: "wowPage"
+    WOW: "wowPage",
+    ENDPOS: "endPos",
+    QR:"qr"
 };
+
+
+var data;
 var page = pages.LOGIN;
 
+var scouter = 0;
 
 var currentLoaderWidth = 0;
 var loaderTimer;
 
 function goToMatchSetUp() {
-    page = pages.MATCHSETUP;
-    data.metadata.scouter = document.getElementById("studid").value;
-    console.log(data.metadata.scouter);
-    pager();
+    
+    if(document.getElementById("studid").value){
+        console.log(document.getElementById("studid").value);
+        scouter = document.getElementById("studid").value;
+        page = pages.MATCHSETUP;
+        pager();
+    }
+    
 }
 
 /**
  * The code to run at the start of a match. Instantiates a timer
  **/
 function startMatch() {
-    page = pages.DATAENTRY;
-    data.metadata.matchNumber = document.getElementById("matchnum").value;
-    data.metadata.teamNumber = document.getElementById("teamnum").value;
-    console.log(data)
-    pager();
+    if(document.getElementById("matchnum").value && document.getElementById("teamnum").value){
+        data = {
+            switch: [],
+            scale: [],
+            exchange: [],
+            disable: false,
+            brownout: false,
+            break: false,
+            crossline: false,
+            endstate: -1,
+            metadata: {
+                matchNumber: -1,
+                scouter: -1,
+                teamNumber: -1
+            }
+        };
+        page = pages.DATAENTRY;
+        data.metadata.scouter = scouter;
+        data.metadata.matchNumber = document.getElementById("matchnum").value;
+        data.metadata.teamNumber = document.getElementById("teamnum").value;
+        console.log(data)
+        pager();
+    }
+    
 }
 
 
@@ -43,9 +72,7 @@ function pager() {
             if (el) el.hidden = true;
         });
         document.getElementById(page).hidden = false;
-        if (page === pages.WOW) {
-            wowText();
-        }
+       
         if (page === pages.DATAENTRY) {
             let modetxt = document.getElementById("mode");
             modetxt.innerText = "Autonomous: ";
@@ -128,6 +155,38 @@ window.onload = function () {
             crossline.classList.add("orButtons");
         }
     };
+
+
+
+    var assistClimb = document.getElementById("ep-assist-climb");
+    var climb = document.getElementById("ep-self-climb");
+    var assistedClimb = document.getElementById("ep-assisted-climb");
+    var noClimb = document.getElementById("ep-none");
+
+    assistClimb.onclick = function(){
+        data.endstate = 0;
+        goToQRPage();
+    }
+    climb.onclick = function(){
+        data.endstate = 1;
+        goToQRPage();
+    }
+    assistedClimb.onclick = function(){
+        data.endstate = 2;
+        goToQRPage();
+    }
+    noClimb.onclick = function(){
+        data.endstate = 3;
+        goToQRPage();
+    }
+
+
+    var doneButton = document.getElementById("qr-done");
+    doneButton.onclick = function(){
+        data = {};
+        page = pages.MATCHSETUP;
+        pager();
+    }
 };
 
 var time = 30;
@@ -170,6 +229,11 @@ function countDown(a) {
         startTele();
         mode = 2;
     }
+    if(time <= 0 && mode === 2){
+        clearInterval(timerInterval);
+        page = pages.ENDPOS;
+        pager();
+    }
 }
 
 function startTele() {
@@ -181,21 +245,7 @@ function startTele() {
     modetxt.innerText = "Teleop: ";
 }
 
-var data = {
-    switch: [],
-    scale: [],
-    exchange: [],
-    disable: false,
-    brownout: false,
-    break: false,
-    crossline: false,
-    endstate: -1,
-    metadata: {
-        matchNumber: -1,
-        scouter: -1,
-        teamNumber: -1
-    }
-};
+
 
 var lastSwitch;
 var switchDeleteTime = -10;
@@ -236,6 +286,20 @@ function updateScaleCount(n) {
 var lastExchange;
 var exchangeDeleteTime = -10;
 
+
+function goToQRPage(){
+    page = pages.QR;
+    var qrcode = new QRCode("qrcode", {
+        text: JSON.stringify(data),
+        width: 512,
+        height: 512,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+        
+    });
+    pager();
+}
 function updateExchangeCount(n) {
     if (n === 1 && uniTimer - exchangeDeleteTime < 3) {
         data.exchange.push(lastExchange);
@@ -249,4 +313,10 @@ function updateExchangeCount(n) {
         lastExchange = data.exchange.pop();
     }
     exchangep.innerText = data.exchange.length;
+}
+
+function updateEndStatus(n){
+    if(n >= -1){
+        data.endstate = n;
+    }
 }

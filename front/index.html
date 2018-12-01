@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="main.css">
 
     <script src="anime.js"></script>
+    <script src="qrcode.min.js"></script>
+
 
     <script src="script.js"></script>
 </head>
@@ -89,6 +91,17 @@
         <button class="grButton largeButton baseButton" style="flex-grow: 1">BREAK</button>
         <button class="orButton largeButton baseButton" style="flex-grow: 1">CROSSLINE</button>
     </div>
+</div>
+<div id="endPos">
+    <h1 class="centerText">END POS</h1>
+    <button class="yeButton largeButton inner-100 entryRow" id="ep-assist-climb">Assist Climb</button>
+    <button class="orButton largeButton inner-100 entryRow" id="ep-self-climb">Self-Climb</button>
+    <button class="bluButton largeButton inner-100 entryRow" id="ep-assisted-climb">Assist<b>ed</b> climb</button>
+    <button class="grButton largeButton inner-100 entryRow" id="ep-none">None</button>
+</div>
+<div id="qr">
+    <div id="qrcode"></div>
+    <button class="orButton largeButton inner-100 entryRow" id="qr-done">Done</button>
 </div>
 </body>
 </html>
