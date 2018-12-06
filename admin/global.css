@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body{
+	font-family: 'Open Sans', sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+.heading{
+	height: 75%;
+	width: 100%;
+	z-index: -1;
+	position: relative;
+	background-attachment: fixed;
+	background-size: cover;
+	vertical-align: bottom;
+	color: #fff;
+}
+.heading h1{
+	bottom: 0;
+	position: absolute;
+	font-size: 128px;
+
+}
