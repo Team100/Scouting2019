@@ -23,6 +23,11 @@ function populatePage(){
 	for(var i = 0; i < smartScoreInstances.length; i++){
 		smartScoreInstances[i].innerText = "123";
 	}
+
+	var tbaRankInstances = document.getElementsByClassName("data-team-tba-rank");
+	for(var i = 0; i < tbaRankInstances.length; i++){
+		tbaRankInstances[i].innerText = "1";
+	}
 	renderTeamScoringData();
 	
 }

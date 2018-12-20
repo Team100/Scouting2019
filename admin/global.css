@@ -55,3 +55,35 @@ div{
 	color: #999999;
 	text-align: center;
 }
+
+
+.pillButton{
+	height: 64px;
+	border-radius: 32px;
+	font-size: 48px;
+	width: 100%;
+	font-family: 'Open Sans',sans-serif;
+	font-weight: 200;
+	text-decoration: none;
+
+}
+.orButton {
+    background-image: -webkit-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    background-image: -moz-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    background-image: -ms-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    background-image: -o-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    background-image: linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    color: #fff;
+    border: none;
+}
+
+
+.bigInput{
+	height:128px;
+	background-color: #eee;
+	font-family: 'Open Sans',sans-serif;
+	border: none;
+	width: 100%;
+	font-weight: 100;
+	font-size: 112px;
+}
