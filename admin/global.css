@@ -5,6 +5,17 @@ body{
 	margin: 0;
 }
 
+h1{
+	font-size: 48px;
+	text-align: center;
+	color: cornflowerblue;
+	font-weight: 200;
+}
+
+div{
+	width: 100%;
+}
+
 .heading{
 	height: 75%;
 	width: 100%;
@@ -18,6 +29,29 @@ body{
 .heading h1{
 	bottom: 0;
 	position: absolute;
-	font-size: 128px;
+	font-size: 64px;
+	font-weight: 800;
+	color: #fff;
 
+}
+.bigNum{
+	text-align: center;
+}
+
+.bigNum h1{
+	font-size: 48px;
+	font-weight: 400;
+	color: cornflowerblue;
+	padding-bottom: 0;
+	margin-bottom: 0;
+
+	text-align: center;
+
+	
+}
+.bigNum h3{
+	font-size: 24px;
+	font-weight: 200;
+	color: #999999;
+	text-align: center;
 }
