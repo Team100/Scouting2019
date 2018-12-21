@@ -3,6 +3,7 @@ body{
 	font-family: 'Open Sans', sans-serif;
 	padding: 0;
 	margin: 0;
+	height: 100%;
 }
 
 h1{
@@ -17,6 +18,7 @@ div{
 }
 
 .heading{
+	min-height:75%;
 	height: 75%;
 	width: 100%;
 	z-index: -1;
@@ -78,14 +80,53 @@ div{
 }
 
 
+.grButton {
+    background-image: -webkit-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    background-image: -moz-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    background-image: -ms-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    background-image: -o-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    background-image: linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    color: #fff;
+    border: none;
+}
+
+
+
+.bluButton {
+    background-image: -webkit-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    background-image: -moz-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    background-image: -ms-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    background-image: -o-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    background-image: linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    color: #fff;
+    border: none;
+}
+
+
 .bigInput{
 	height:128px;
-	background-color: #eee;
+	background-color: #fff;
 	font-family: 'Open Sans',sans-serif;
 	border: none;
 	width: 100%;
 	font-weight: 100;
 	font-size: 112px;
+}
+.bigInput :hover{
+	border: none;
+}
+
+.smallInput{
+	height:48px;
+	background-color: #fff;
+	font-family: 'Open Sans',sans-serif;
+	border: none;
+	width: 100%;
+	font-weight: 100;
+	font-size: 36px;
+}
+.smallInput :hover{
+	border: none;
 }
 
 .navIco{

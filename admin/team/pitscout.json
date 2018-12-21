@@ -1,0 +1,44 @@
+{ 
+    "questions":[
+        {
+            "type":"header",
+            "content":"1. Intro"
+        },
+        {
+            "type":"option",
+            "prompt":"1. What kind of drivetrain? ",
+            "options":[
+                "West Coast",
+                "Holonomic",
+                "Swerve",
+                "H-drive",
+                "Other"
+            ]
+        },
+        {
+            "type":"option",
+            "prompt": "2. What is their best mechanism?",
+            "options":[
+                "Drive Train",
+                "Shooter",
+                "Intake",
+                "Elevaor",
+                "Outtake",
+                "Climber",
+                "Climb-Assist",
+                "Other"
+            ]
+        },
+        {
+            "type":"header",
+            "content":"2. Stats"
+        },
+        {
+            "type":"num",
+            "prompt":"textNum",
+            "hint":"123"
+            
+        }
+        
+    ]
+}
