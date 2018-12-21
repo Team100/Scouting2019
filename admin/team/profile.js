@@ -3,7 +3,7 @@ var urlParams;
 var pageParams = {
 	"team":"000"
 }
-window.onload = function(){
+function loadPage(){
 	console.log("Page loaded");
 	var currentUrl = new URL(window.location);
 	urlParams = new URLSearchParams(currentUrl.search);

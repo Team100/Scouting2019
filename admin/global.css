@@ -87,3 +87,10 @@ div{
 	font-weight: 100;
 	font-size: 112px;
 }
+
+.navIco{
+	top:10;
+	left:10;
+	position: fixed;
+	font-size: 36px;
+}
