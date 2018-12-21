@@ -31,12 +31,25 @@ function refreshPage(){
             console.info(data.questions[i]);
             
             var questionNode = document.createElement("div");
+            questionNode.setAttribute("id", "psq-"+i);
+
             if(q.type == "header"){
                 var h1 = document.createElement("h1");
                 var content = document.createTextNode(q.content);
                 h1.appendChild(content);
                 questionNode.appendChild(h1);
-            }else{
+            }
+            else if (q.type == "alert"){
+                var alert = document.createElement("div")
+                alert.classList.add("alert");
+                alert.classList.add("alert-"+q.category);
+                alert.setAttribute("role","alert");
+                var text = document.createTextNode(q.content);
+                alert.appendChild(text);
+                questionNode.appendChild(alert);
+            }
+            
+            else{
                 var prompt = document.createTextNode(q.prompt);
                 questionNode.appendChild(prompt);
                 if(q.type == "option"){

@@ -1,6 +1,11 @@
 { 
     "questions":[
         {
+            "type":"alert",
+            "category":"primary",
+            "content":"THIS FEATURE IS IN DEVELOPMENT"
+        },
+        {
             "type":"header",
             "content":"1. Intro"
         },
@@ -16,8 +21,13 @@
             ]
         },
         {
+            "type":"num",
+            "prompt":"2. How many wheels total?",
+            "hint":"Enter Here"
+        },
+        {
             "type":"option",
-            "prompt": "2. What is their best mechanism?",
+            "prompt": "3. What is their best mechanism?",
             "options":[
                 "Drive Train",
                 "Shooter",
@@ -28,16 +38,6 @@
                 "Climb-Assist",
                 "Other"
             ]
-        },
-        {
-            "type":"header",
-            "content":"2. Stats"
-        },
-        {
-            "type":"num",
-            "prompt":"textNum",
-            "hint":"123"
-            
         }
         
     ]
