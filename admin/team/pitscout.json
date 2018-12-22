@@ -3,7 +3,7 @@
         {
             "type":"alert",
             "category":"primary",
-            "content":"THIS FEATURE IS IN DEVELOPMENT"
+            "content":"Thank you for using a browser supporting local AJAX"
         },
         {
             "type":"header",
@@ -29,7 +29,7 @@
             "type":"option",
             "prompt": "3. What is their best mechanism?",
             "options":[
-                "Drive Train",
+                "Drivetrain",
                 "Shooter",
                 "Intake",
                 "Elevaor",
@@ -37,6 +37,19 @@
                 "Climber",
                 "Climb-Assist",
                 "Other"
+            ]
+        },
+        {
+            "type":"header",
+            "content":"Auton"
+        },
+        {
+            "type":"option",
+            "prompt":"4. Cross the line?",
+            "options":[
+                "No",
+                "Yes (unrealiable)",
+                "Yes (reliable)"
             ]
         }
         

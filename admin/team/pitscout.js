@@ -84,6 +84,7 @@ function refreshPage(){
         }
         document.getElementById("form").appendChild(formNode);
     });
+
 }
 function loadPage(){
     refreshPage();

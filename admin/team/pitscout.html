@@ -15,6 +15,13 @@
 		<title>Pit Scout</title>
 	</head>
 	<body>
+        <!--
+            # README
+            This page uses XML HTTP Requests to get data from the JSON file. As a result, *it will not work
+            during development in Google Chrome*. It should work __in production__ in Google Chrome.
+            Please use Firefox Quantum or another browser that supports local XML HTTP Requests in order to use
+            this file before being pushed to Firebase Hosting.
+        -->
 		<div class="heading" style="background-image: url('https://images.unsplash.com/photo-1540206458-edb7b7218d68');">
 			
 			<h1 class="data-team-num"></h1>
@@ -22,65 +29,14 @@
 		    
 		</div>
         <br />
+        <div class="alert alert-danger" role="alert">
+            <b>PLEASE NOTE: </b> This code uses AJAX for loading data. It may not work in Google Chrome or other browsers that do not permit local ajax. Please use Firefox if you do not see content below.
+        </div>
         <div id="form">
 
         </div>
-        <!----
-        <h1>1. Basics</h1>
-        1. What kind of drivetrain?
-        <select class="form-control form-control-lg">
-            <option>West Coast</option>
-            <option>Holonomic</option>
-            <option>Swerve</option>
-            <option>H-drive</option>
-            <option>Other</option>
-        </select>
-        <br />
-        <br />
-        2. Best mechanism
-        <select class="form-control form-control-lg">
-            <option>Drive train</option>
-            <option>Shooter</option>
-            <option>Intake</option>
-            <option>Elevator</option>
-            <option>Outtake</option>
-            <option>Climber</option>
-            <option>Climb-Assist</option>
-            <option>Other</option>
-
-        </select>
-        <br />
-        <br />
-        3. What can they do?
-        <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">Switch</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Scale</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3">Exchange</label>
-              </div>
-              <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox3">Defense</label>
-                  </div>
-        <br />
-        <br />
-        <h1>Strategy</h1>
-        4. What do they prefer to do during a match?
-        <select class="form-control form-control-lg">
-            <option>Switch</option>
-            <option>Scale</option>
-            <option>Exchange</option>
-            <option>Defense</option>
-            <option>Misc</option>
-        </select>
-        --->
-		<button class="pillButton orButton">Actions</button>
+       
+		<button class="pillButton orButton" id="submit">Actions</button>
         
         
 		
