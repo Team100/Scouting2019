@@ -291,8 +291,8 @@ function goToQRPage(){
     page = pages.QR;
     var qrcode = new QRCode("qrcode", {
         text: JSON.stringify(data),
-        width: 512,
-        height: 512,
+        width: window.innerWidth,
+        height: window.innerWidth,
         colorDark : "#000000",
         colorLight : "#ffffff",
         correctLevel : QRCode.CorrectLevel.L
