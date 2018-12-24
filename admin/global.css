@@ -9,7 +9,7 @@ body{
 h1{
 	font-size: 48px;
 	text-align: center;
-	color: cornflowerblue;
+	color: #5d9cec;
 	font-weight: 200;
 }
 
@@ -17,6 +17,9 @@ div{
 	width: 100%;
 }
 
+code{
+	color: #f17171
+}
 
 select{
 	-webkit-appearance: none;
@@ -38,6 +41,7 @@ select{
 	z-index: -1;
 	position: relative;
 	background-attachment: fixed;
+	background-position: center;
 	background-size: cover;
 	vertical-align: bottom;
 	color: #fff;
@@ -48,6 +52,7 @@ select{
 	font-size: 64px;
 	font-weight: 800;
 	color: #fff;
+	-webkit-text-stroke: 2px black;
 
 }
 .bigNum{
@@ -57,7 +62,7 @@ select{
 .bigNum h1{
 	font-size: 48px;
 	font-weight: 400;
-	color: cornflowerblue;
+	color: #5d9cec;
 	padding-bottom: 0;
 	margin-bottom: 0;
 
