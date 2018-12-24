@@ -51,6 +51,49 @@
                 "Yes (unrealiable)",
                 "Yes (reliable)"
             ]
+        },
+        {
+            "type":"option",
+            "prompt":"5. Switch",
+            "options":[
+                "No",
+                "Yes (unreliable)",
+                "Yes (reliable)"
+            ]
+        },
+        {
+            "type":"num",
+            "prompt":"5a. How Many?",
+            "hint":"Enter Here"
+        },
+        {
+            "type":"option",
+            "prompt":"6. Scale",
+            "options":[
+                "No",
+                "Yes (unreliable)",
+                "Yes (reliable)"
+                
+            ]
+        },
+        {
+            "type":"num",
+            "prompt": "6a. How Many?",
+            "hint":"Enter Here"
+        },
+        {
+            "type":"option",
+            "prompt":"7. Exchange",
+            "options":[
+                "No",
+                "Yes (unreliable)",
+                "Yes (reliable)"
+            ]
+        },
+        {
+            "type":"num",
+            "prompt":"7a. How Many?",
+            "hint":"Enter Here"
         }
         
     ]

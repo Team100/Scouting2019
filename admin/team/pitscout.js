@@ -1,3 +1,9 @@
+var urlParams;
+
+var pageParams = {
+	"team":"000"
+}
+
 function ajax_get(url, callback) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -19,8 +25,22 @@ function ajax_get(url, callback) {
 
 
 function refreshPage(){
+
+    var currentUrl = new URL(window.location);
+	urlParams = new URLSearchParams(currentUrl.search);
+
+    pageParams.team = urlParams.get("team");
+    
+    var tnLocations = document.getElementsByClassName("data-team-num");
+    for(var i = 0; i < tnLocations.length; i++){
+        tnLocations[i].innerText = pageParams.team;
+    }
+
+
     var formNode = document.createElement("div");
     formNode.id = "ps-data";
+
+
     ajax_get('pitscout.json', function(data) {
         
         

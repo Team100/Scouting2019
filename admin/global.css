@@ -17,6 +17,20 @@ div{
 	width: 100%;
 }
 
+
+select{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	display: block;
+	height: 48px;
+	font-size: 36px;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	color:#999999;
+}
+
 .heading{
 	min-height:75%;
 	height: 75%;
@@ -127,6 +141,19 @@ div{
 }
 .smallInput :hover{
 	border: none;
+}
+
+::placeholder{
+	color: #999999;
+	opacity: 1;
+}
+::-moz-placeholder{
+	color: #999999;
+	opacity: 1;
+}
+::-webkit-input-placeholder{
+	color: #999999;
+	opacity: 1;
 }
 
 .navIco{
