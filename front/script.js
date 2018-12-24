@@ -295,7 +295,7 @@ function goToQRPage(){
         height: 512,
         colorDark : "#000000",
         colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
+        correctLevel : QRCode.CorrectLevel.L
         
     });
     pager();
