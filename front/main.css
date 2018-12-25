@@ -194,7 +194,7 @@ h1 {
 
 .largeButton {
     font-size: 48px !important;
-    height: auto;
+    height: 64px;
     vertical-align: middle;
     font-weight: 300;
 }

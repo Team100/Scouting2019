@@ -289,10 +289,20 @@ var exchangeDeleteTime = -10;
 
 function goToQRPage(){
     page = pages.QR;
+    var widthToSet = 0;
+    if(window.innerWidth < window.innerHeight - 64){
+        widthToSet = window.innerWidth;
+        console.info("Width is less");
+    }
+    else{
+        widthToSet = window.innerHeight - 64;
+        console.info("Height is less");
+    }
     var qrcode = new QRCode("qrcode", {
+        
         text: JSON.stringify(data),
-        width: window.innerWidth,
-        height: window.innerWidth,
+        width: widthToSet,
+        height: widthToSet,
         colorDark : "#000000",
         colorLight : "#ffffff",
         correctLevel : QRCode.CorrectLevel.L
