@@ -3,3 +3,6 @@
 
 # VIM SWAPS
 *.swp
+
+*~
+*.un~
