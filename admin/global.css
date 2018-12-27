@@ -120,7 +120,30 @@ select{
     color: #fff;
     border: none;
 }
+.debug-1{
+	background-color: blue;
+	color: green;
 
+}
+/*
+.card{
+	width: 50%;
+	height: 50%;
+	background-color: #fff;
+	
+	
+}
+.card-centered{
+	position: absolute;
+
+	left: 25%;
+	top: 25%;
+
+	/*transform: translate(-50%, -50%);*//*
+
+
+}
+*/
 
 .bigInput{
 	height:128px;
