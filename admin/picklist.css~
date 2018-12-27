@@ -12,6 +12,9 @@ h1{
 h2{
 	font-size: 48pt !important;
 }
+li{
+	text-align: center;
+}
 /*
 .leftIndicator{
     background-color: #ee5d65;
