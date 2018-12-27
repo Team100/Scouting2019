@@ -13,12 +13,8 @@ var loadDom = new Promise(function(resolve, reject) {
         teamCard.setAttribute("data-swipe-left","true");
         var teamNum = document.createElement("h1");
         var teamNumText = document.createTextNode(team.num);
-	var teamScore = document.createElement("h2");
-	var teamScoreText = document.createTextNode(team.score);
-	teamScore.appendChild(teamScoreText);
         teamNum.appendChild(teamNumText);
         teamCard.appendChild(teamNum);
-	teamCard.appendChild(teamScore);
         pickHolder.appendChild(teamCard);
     }
     
