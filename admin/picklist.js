@@ -1,4 +1,23 @@
+
 $(document).ready(function() {
+    console.info("Started");
+    var pickHolder = document.getElementsByClassName("stack-swipe-stack")[0];
+    var team = {
+        "num": 123,
+        "score": 12345
+    }
+
+    for(var i = 0; i < 10; i ++){
+        var teamCard = document.createElement("li");
+        teamCard.setAttribute("data-swipe-right", "true");
+        teamCard.setAttribute("data-swipe-left","true");
+        var teamNum = document.createElement("h1");
+        var teamNumText = document.createTextNode(team.num);
+        teamNum.appendChild(teamNumText);
+        teamCard.appendChild(teamNum);
+        pickHolder.appendChild(teamCard);
+    }
+
     var simpleSwipe = $('.stack-swipe').StackSwipe();
     
     simpleSwipe.on('swipeSuccess', function(event, card, direction) {

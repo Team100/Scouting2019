@@ -163,9 +163,9 @@ Author URI: http://vil.es/
       throwOut: function(direction) {
 
         var stackWidth = this.$elem.width(),
-            throwOutHoriz = stackWidth * 1.125, //TODO CHANGED
+            throwOutHoriz = stackWidth * 1.5, //TODO CHANGED
             stackHeight = this.$elem.height(),
-            throwOutVert = stackHeight * 1.125, //TODO CHANGED
+            throwOutVert = stackHeight * 1.5, //TODO CHANGED
             that = this,
             coords;
 
@@ -223,6 +223,7 @@ Author URI: http://vil.es/
       ///////////////////////////////////////////////////////
       swipeUnavailable: function(direction) {
         this.$elem.trigger('swipeUnavailable', direction);
+        console.error("Unavailable swipe");
       }
 
     },

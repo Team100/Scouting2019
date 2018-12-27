@@ -3,14 +3,11 @@ ul{
     list-style-type: none;
 }
 
-.card{
-    background-color: #48cfad;
-   
-}
 h1{
     font-size: 64pt !important;
     
 }
+/*
 .leftIndicator{
     background-color: #ee5d65;
     width: 50%;
@@ -31,3 +28,4 @@ h1{
     bottom: 0;
     z-index: -999;
 }
+*/
