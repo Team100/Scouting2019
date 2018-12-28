@@ -27,6 +27,16 @@ function goToMatchSetUp() {
     
 }
 
+function registerButtonTaps(){
+	/*
+	 * I am unsure if Cordova will handle the inline onclicks properly.
+	 * I have not tested it, but we will need to replace all of them with
+	 * this format if it doesn't support inline onclick
+	 */
+	document.getElementById("login-login").addEventListener('click',goToMatchSetUp);
+	document.getElementById("matchsetup-start").addEventListener('click',startMatch);
+}
+
 /**
  * The code to run at the start of a match. Instantiates a timer
  **/
@@ -114,6 +124,7 @@ let breakb;
 let crossline;
 
 window.onload = function () {
+	registerButtonTaps();	
     switchp = document.getElementById("switch-count");
     scalep = document.getElementById("scale-count");
     exchangep = document.getElementById("exchange-count");

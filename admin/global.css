@@ -17,6 +17,14 @@ div{
 	width: 100%;
 }
 
+.pillButton a{
+	width:100%;
+	padding-left: auto;
+	padding-right: auto;
+	text-align: center;
+	display: block;
+}
+
 code{
 	color: #f17171
 }

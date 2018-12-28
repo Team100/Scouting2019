@@ -8,6 +8,8 @@
 /**
  * A promise to load DOM elements for the various teams
  * [STATUS: INCOMPLETE]
+ *
+ * @return true completion status
  */
 var loadDom = new Promise(function(resolve, reject) {
     
@@ -33,6 +35,10 @@ var loadDom = new Promise(function(resolve, reject) {
     
     resolve(true);
   });
+/**
+ * The page initializer
+ * Called from global.js
+ */
 function loadPage(){
     console.info("Started");
     
@@ -45,6 +51,9 @@ function loadPage(){
     
     
 }
+/**
+ * The code to load the swiping library
+ */
 function loadSwiper(){
     var simpleSwipe = $('.stack-swipe').StackSwipe();
     

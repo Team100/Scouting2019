@@ -67,7 +67,7 @@ function loadSwiper(){
     });
     
     simpleSwipe.on('cardsExhausted', function() {
-        console.log('All cards exhausted');
+    	window.location = "static/emptyPL.html";
     });
     
     /*
