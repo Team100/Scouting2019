@@ -161,11 +161,11 @@ Author URI: http://vil.es/
       // Throw Out
       ///////////////////////////////////////////////////////
       throwOut: function(direction) {
-
+	var kThrowoutAmount = 1.5;
         var stackWidth = this.$elem.width(),
-            throwOutHoriz = stackWidth * 0.75, //TODO CHANGED
+            throwOutHoriz = stackWidth * kThrowoutAmount, //TODO CHANGED
             stackHeight = this.$elem.height(),
-            throwOutVert = stackHeight * 0.75, //TODO CHANGED
+            throwOutVert = stackHeight * kThrowoutAmount, //TODO CHANGED
             that = this,
             coords;
 

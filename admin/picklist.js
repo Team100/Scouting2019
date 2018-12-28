@@ -1,5 +1,16 @@
+/*
+ * # What is this file?
+ * This file is a mash of various configurations and logic in order to use
+ * Will Vile's swiper library. It has been cusomized for the purposes of Team 100
+ */
 
 
+/**
+ * A promise to load DOM elements for the various teams
+ * [STATUS: INCOMPLETE]
+ *
+ * @return true completion status
+ */
 var loadDom = new Promise(function(resolve, reject) {
     
     var pickHolder = document.getElementById("swiper-stack");
@@ -24,6 +35,10 @@ var loadDom = new Promise(function(resolve, reject) {
     
     resolve(true);
   });
+/**
+ * The page initializer
+ * Called from global.js
+ */
 function loadPage(){
     console.info("Started");
     
@@ -36,6 +51,9 @@ function loadPage(){
     
     
 }
+/**
+ * The code to load the swiping library
+ */
 function loadSwiper(){
     var simpleSwipe = $('.stack-swipe').StackSwipe();
     
@@ -44,11 +62,9 @@ function loadSwiper(){
         console.log(direction + ' swipe SUCCESS!');
     });
     
-    /*
     simpleSwipe.on('swipeUnavailable', function(event, direction) {
         alert(direction + ' swipe unavailable!');
     });
-    */
     
     simpleSwipe.on('cardsExhausted', function() {
         console.log('All cards exhausted');

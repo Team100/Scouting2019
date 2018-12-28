@@ -1,7 +1,8 @@
 body{
-	overflow: hidden;
-	position: fixed;
+	/*overflow: hidden;
+	position: fixed;*/
 	font-family: 'Open Sans',sans-serif !important;
+	background-color: #ee5d65;
 }
 
 h1{
@@ -14,6 +15,7 @@ h2{
 }
 li{
 	text-align: center;
+	background-color: #ffffff;
 }
 /*
 .leftIndicator{

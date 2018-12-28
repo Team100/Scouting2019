@@ -1,5 +1,14 @@
+/*
+ * # What is this file?
+ * This file is a mash of various configurations and logic in order to use
+ * Will Vile's swiper library. It has been cusomized for the purposes of Team 100
+ */
 
 
+/**
+ * A promise to load DOM elements for the various teams
+ * [STATUS: INCOMPLETE]
+ */
 var loadDom = new Promise(function(resolve, reject) {
     
     var pickHolder = document.getElementById("swiper-stack");
@@ -13,8 +22,12 @@ var loadDom = new Promise(function(resolve, reject) {
         teamCard.setAttribute("data-swipe-left","true");
         var teamNum = document.createElement("h1");
         var teamNumText = document.createTextNode(team.num);
+	var teamScore = document.createElement("h2");
+	var teamScoreText = document.createTextNode(team.score);
+	teamScore.appendChild(teamScoreText);
         teamNum.appendChild(teamNumText);
         teamCard.appendChild(teamNum);
+	teamCard.appendChild(teamScore);
         pickHolder.appendChild(teamCard);
     }
     
@@ -40,11 +53,9 @@ function loadSwiper(){
         console.log(direction + ' swipe SUCCESS!');
     });
     
-    /*
     simpleSwipe.on('swipeUnavailable', function(event, direction) {
         alert(direction + ' swipe unavailable!');
     });
-    */
     
     simpleSwipe.on('cardsExhausted', function() {
         console.log('All cards exhausted');

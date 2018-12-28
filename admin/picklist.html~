@@ -13,11 +13,7 @@
     <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="lib/bower_components/jquery.transit/jquery.transit.js"></script>
     <script src="lib/bower_components/hammerjs/hammer.min.js"></script>
-    <!-- Include Stack Swipe -->
-    <script src="lib/stack-swipe.js"></script>
-    <script src="picklist.js"></script>
-
-    
+       
     
 </head>
 <body>
@@ -55,7 +51,11 @@
         <div class="stack-swipe-btns"><ul><!-- Inject buttons via jQuery -->/ul></div>
     </div>
     
-    
+     <!-- Include Stack Swipe -->
+    <script src="lib/stack-swipe.js"></script>
+    <script src="picklist.js"></script>
+
+
     </body>
 </html>
     
