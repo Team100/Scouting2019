@@ -1,0 +1,100 @@
+{ 
+    "questions":[
+        {
+            "type":"alert",
+            "category":"primary",
+            "content":"Thank you for using a browser supporting local AJAX"
+        },
+        {
+            "type":"header",
+            "content":"1. Intro"
+        },
+        {
+            "type":"option",
+            "prompt":"1. What kind of drivetrain? ",
+            "options":[
+                "West Coast",
+                "Holonomic",
+                "Swerve",
+                "H-drive",
+                "Other"
+            ]
+        },
+        {
+            "type":"num",
+            "prompt":"2. How many wheels total?",
+            "hint":"Enter Here"
+        },
+        {
+            "type":"option",
+            "prompt": "3. What is their best mechanism?",
+            "options":[
+                "Drivetrain",
+                "Shooter",
+                "Intake",
+                "Elevator",
+                "Outtake",
+                "Climber",
+                "Climb-Assist",
+                "Other"
+            ]
+        },
+        {
+            "type":"header",
+            "content":"Auton"
+        },
+        {
+            "type":"option",
+            "prompt":"4. Cross the line?",
+            "options":[
+                "No",
+                "Yes (unrealiable)",
+                "Yes (reliable)"
+            ]
+        },
+        {
+            "type":"option",
+            "prompt":"5. Switch",
+            "options":[
+                "No",
+                "Yes (unreliable)",
+                "Yes (reliable)"
+            ]
+        },
+        {
+            "type":"num",
+            "prompt":"5a. How Many?",
+            "hint":"Enter Here"
+        },
+        {
+            "type":"option",
+            "prompt":"6. Scale",
+            "options":[
+                "No",
+                "Yes (unreliable)",
+                "Yes (reliable)"
+                
+            ]
+        },
+        {
+            "type":"num",
+            "prompt": "6a. How Many?",
+            "hint":"Enter Here"
+        },
+        {
+            "type":"option",
+            "prompt":"7. Exchange",
+            "options":[
+                "No",
+                "Yes (unreliable)",
+                "Yes (reliable)"
+            ]
+        },
+        {
+            "type":"num",
+            "prompt":"7a. How Many?",
+            "hint":"Enter Here"
+        }
+        
+    ]
+}

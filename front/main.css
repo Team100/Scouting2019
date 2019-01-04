@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html, body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    padding-top: 15px;
+    padding-bottom: auto;
+    font-size: 48px;
+    font-weight: 200;
+}
+
+#time {
+    font-family: "Courier New";
+    font-weight: lighter;
+}
+#qr-done{
+    bottom: 0;
+    position: absolute;
+}
+
+#login, #match-setup, #data-entry, #endPos {
+    height: 100%;
+}
+
+.button {
+    font-weight: 100 !important;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 24px;
+    position: static;
+}
+
+.orButton {
+    background-image: -webkit-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    background-image: -moz-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    background-image: -ms-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    background-image: -o-linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    background-image: linear-gradient(335deg, #e2c339, #F17C35, #E2336E);
+    color: #fff;
+    border: none;
+}
+
+.orButtons {
+    background-image: -webkit-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
+    background-image: -moz-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
+    background-image: -ms-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
+    background-image: -o-linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
+    background-image: linear-gradient(335deg, #cfc03c, #d36d2e, #d12f66);
+    filter: brightness(0.8);
+}
+
+.yeButton {
+    background-image: -webkit-linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
+    background-image: -moz-linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
+    background-image: -ms-linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
+    background-image: -o-linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
+    background-image: linear-gradient(135deg, #8fef31, #e8e642, #e2c145);
+    color: #fff;
+    border: none;
+}
+
+.yeButtons {
+    background-image: -webkit-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
+    background-image: -moz-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
+    background-image: -ms-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
+    background-image: -o-linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
+    background-image: linear-gradient(135deg, #85de2e, #d7d53d, #cfb13f);
+    filter: brightness(0.7);
+}
+
+.grButton {
+    background-image: -webkit-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    background-image: -moz-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    background-image: -ms-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    background-image: -o-linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    background-image: linear-gradient(135deg, #35d8cc, #39d89b, #3ad835);
+    color: #fff;
+    border: none;
+}
+
+.grButtons {
+    background-image: -webkit-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
+    background-image: -moz-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
+    background-image: -ms-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
+    background-image: -o-linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
+    background-image: linear-gradient(135deg, #31c7bc, #34c68e, #34c12f);
+    filter: brightness(0.8);
+}
+
+.bluButton {
+    background-image: -webkit-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    background-image: -moz-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    background-image: -ms-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    background-image: -o-linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    background-image: linear-gradient(315deg, #35C9FF, #4845e7, #8c39e7, #da2fe7);
+    color: #fff;
+    border: none;
+}
+
+.bluButtons {
+    background-image: -webkit-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
+    background-image: -moz-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
+    background-image: -ms-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
+    background-image: -o-linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
+    background-image: linear-gradient(315deg, #30b5e5, #413fd2, #7e33d0, #c42ad0);
+    filter: brightness(0.5);
+}
+
+.margins {
+    margin: 10px;
+}
+
+.debug {
+    background-color: #00ff00;
+}
+
+.horiz-center {
+    margin: 0;
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(0, -50%);
+}
+
+.abs-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.inner-25 {
+    width: 25%;
+}
+
+.inner-33 {
+    width: 33%;
+}
+
+.inner-50 {
+    width: 50%;
+}
+
+.inner-66 {
+    width: 67%; /*So that the sum is 100%*/
+}
+
+.inner-75 {
+    width: 75%;
+}
+
+.inner-100 {
+    width: 100%;
+}
+
+.ds-large {
+    box-shadow: 0px 12px 35px #888888;
+}
+
+.shadow {
+    box-shadow: 0px 7px 15px #e4e4e4;
+}
+
+.card {
+
+}
+
+.header {
+    height: 15%;
+    width: 100%;
+    text-align: center;
+}
+
+.entryRow {
+    height: 20% !important;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.largeButton {
+    font-size: 48px !important;
+    height: 64px;
+    vertical-align: middle;
+    font-weight: 300;
+}
+
+.base {
+    height: 25%;
+}
+
+.baseButton {
+    height: 50%;
+}
+
+h2 {
+    font-weight: normal;
+    color: #464646;
+    font-family: Gotham SSm A, Gotham SSm B, Helvetica, Arial, sans-serif;
+}
+
+.uk-input, .uk-input:focus {
+    border-width: 2px;
+    border-color: #CBCBCB;
+    color: #000000;
+    background: #ffffff;
+}
+
+.uk-input:focus {
+    border-width: 2px;
+    border-color: #7f7f7f;
+}
+
+textarea:focus, input:focus, button:focus {
+    outline: none;
+}
+
+/*#tempOrg {
+    height: 300%;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}*/
+
+.container-incr {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    flex-wrap: nowrap;
+}
+
+.container-block {
+    position: absolute;
+    bottom: 0px;
+    height: 18%;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+}
+
+.container-block button {
+    width: 50%;
+}
+
+p {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: #333333;
+}
+
+.material-icons {
+    font-size: 40px;
+}
+
+h1 {
+    color: #000000;
+}
+
+.uk-card-title {
+    padding-top: 8px;
+}
+
+#loader{
+    height: 100%;
+    width: 0px;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: #f17171;
+    z-index: 999;
+}
