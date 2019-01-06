@@ -6,3 +6,7 @@
 
 *~
 *.un~
+
+# Firebase
+.vscode
+node_modules

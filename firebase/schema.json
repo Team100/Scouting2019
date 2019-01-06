@@ -1,0 +1,25 @@
+{
+    "hatch":[
+        {
+            "time":10.0,
+            "loc":1,//1 = rocket
+            "level":2
+        }
+    ],
+    "cargo":[
+        {
+            "time":15.0,
+            "loc":0 //0 = ship
+        }
+    ],
+    "metadata":{
+        "teamNum":971,
+        "match":123,
+        "scouter":"123",
+        "startingLoc":2,
+        "disable":false,
+        "brwn":false,
+        "break":false,
+        "crossline":false
+    }
+}
