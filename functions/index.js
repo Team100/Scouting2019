@@ -1,8 +1,32 @@
 const functions = require('firebase-functions');
+const admin = require("firebase-admin");
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+admin.initializeApp(functions.config().firebase);
+
+exports.ingress = functions.https.onRequest((request, response) => {
+    // Validate that data exists
+    if (!request.query.hasOwnProperty("data")) {
+        response.status(400).send(JSON.stringify({"status": "error","reason": "Invalid request"}));
+        return;
+    }
+
+    // Convert query data into JSON
+    let data = JSON.parse(request.query.data);
+
+    // Update current value in unprocessed
+    admin.firestore().collection("unprocessed").doc(data.metadata.teamName).update({
+        match: admin.firestore.FieldValue.arrayUnion(data)
+    }).then(() => {
+        // Return success
+        response.status(200).send(JSON.stringify({"status": "success"}));
+        return;
+    }).catch(err => {
+        // Return generic error and log actual
+        console.log("Error updating document:", err);
+        response.status(500).send(JSON.stringify({"status": "error", "reason": "Could not update the database"}));
+        return;
+    });
+
+    // Catch all for errors
+    response.status(500).send(JSON.stringify({"status": "error", "reason": "Something went wrong and we're looking into it"}))
+});
