@@ -1,10 +1,16 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
+const axios = require("axios");
 
 admin.initializeApp(functions.config().firebase);
 admin.firestore().settings({timestampsInSnapshots: true});
 
+// TODO: get config from database
 const EVENT = "davis";
+const EVENT_KEY = "2018cada";
+
+axios.defaults.headers.common["X-TBA-Auth-Key"] = "UegGTUgQM50rZaDdu5fHXvTMmB9tAjlAQi4spx4u1KKcDLwdjAaQpbgTZmiqnF4y";
+axios.defaults.headers.common["User-Agent"] = "Team 100 FRC Scouting";
 
 // TODO: update for 2019 game
 exports.ingress = functions.https.onRequest((request, response) => {
@@ -104,4 +110,30 @@ exports.ingress = functions.https.onRequest((request, response) => {
         console.error(e);
         response.status(500).send(JSON.stringify({"status": "error", "reason": "Something went wrong and we're looking into it"}));
     }
+});
+
+exports.tba = functions.https.onRequest((request, response) => {
+    // Check if post request
+    if (request.method !== "POST") {
+        response.status(405).send(JSON.stringify({"status": "error", "reason": "Method not allowed"}));
+        return;
+    }
+
+    // Convert TBA format to custom format
+    let rankings = {};
+    for (let team of request.body.rankings) {
+        rankings[team.team_key.replace("frc", "") + "." + "tba-rank"] = team.rank;
+    }
+
+    // Send to firestore
+    admin.firestore().collection("events").doc(EVENT).update(rankings).then(() => {
+        // Return success
+        response.status(200).send(JSON.stringify({"status": "success"}));
+        return;
+    }).catch(err => {
+        // Return generic error and log actual
+        console.error("Error getting current event document:", err);
+        response.status(500).send(JSON.stringify({"status": "error", "reason": "Could not retrieve data from the database"}));
+        return;
+    });
 });
