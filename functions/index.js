@@ -112,6 +112,10 @@ exports.ingress = functions.https.onRequest((request, response) => {
     }
 });
 
+// Usage:
+// - get data from TBA
+//   - https://www.thebluealliance.com/api/v3/event/{EVENT_KEY}/rankings
+// - pipe data to this function
 exports.tba = functions.https.onRequest((request, response) => {
     // Check if post request
     if (request.method !== "POST") {
