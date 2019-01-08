@@ -10,6 +10,7 @@ html, body {
     bottom: 0;
     background-color: #ffffff;
     font-family: 'Open Sans', sans-serif;
+    overflow: none;
 }
 
 h1 {
@@ -198,7 +199,9 @@ h1 {
     vertical-align: middle;
     font-weight: 300;
 }
-
+.entryRow .largeButton{
+    height: 100%;
+}
 .base {
     height: 25%;
 }

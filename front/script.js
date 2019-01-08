@@ -125,9 +125,9 @@ let crossline;
 
 window.onload = function () {
 	registerButtonTaps();	
-    switchp = document.getElementById("switch-count");
-    scalep = document.getElementById("scale-count");
-    exchangep = document.getElementById("exchange-count");
+    switchp = document.getElementById("hatch-rocket-count");
+    scalep = document.getElementById("hatch-ship-count");
+    exchangep = document.getElementById("cargo-rocket-count");
     timer = document.getElementById("time");
 
     disable = (document.getElementById("base")).getElementsByClassName("yeButton")[0];
@@ -261,7 +261,7 @@ function startTele() {
 var lastSwitch;
 var switchDeleteTime = -10;
 
-function updateSwitchCount(n) {
+function updateHRCount(n) {
     if (n === 1 && uniTimer - switchDeleteTime < 3) {
         data.switch.push(lastSwitch);
         switchDeleteTime = -10;
@@ -279,7 +279,7 @@ function updateSwitchCount(n) {
 var lastScale;
 var scaleDeleteTime = -10;
 
-function updateScaleCount(n) {
+function updateHSCount(n) {
     if (n === 1 && uniTimer - scaleDeleteTime < 3) {
         data.scale.push(lastScale);
         scaleDeleteTime = -10;
@@ -321,7 +321,22 @@ function goToQRPage(){
     });
     pager();
 }
-function updateExchangeCount(n) {
+function updateCRCount(n) {
+    if (n === 1 && uniTimer - exchangeDeleteTime < 3) {
+        data.exchange.push(lastExchange);
+        exchangeDeleteTime = -10;
+    }
+    else if (n === 1) {
+        data.exchange.push(uniTimer);
+    }
+    else {
+        exchangeDeleteTime = uniTimer;
+        lastExchange = data.exchange.pop();
+    }
+    exchangep.innerText = data.exchange.length;
+}
+
+function updateCSCount(n) {
     if (n === 1 && uniTimer - exchangeDeleteTime < 3) {
         data.exchange.push(lastExchange);
         exchangeDeleteTime = -10;
