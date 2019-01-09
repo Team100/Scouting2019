@@ -42,7 +42,7 @@ function registerButtonTaps(){
  **/
 function startMatch() {
     if(document.getElementById("matchnum").value && document.getElementById("teamnum").value){
-        data = {
+	    data = {
             HatchRocket: [],
             HatchShip: [],
             CargoRocket: [],
@@ -63,12 +63,46 @@ function startMatch() {
         data.metadata.matchNumber = document.getElementById("matchnum").value;
         data.metadata.teamNumber = document.getElementById("teamnum").value;
         console.log(data)
+        resetDataEntryPage();
+
         pager();
     }
     
 }
+/**
+ * Reset the values on the Data Entry Page
+ */
+function resetDataEntryPage(){
+	document.getElementById("hatch-rocket-count").innerText="0";
+	document.getElementById("hatch-ship-count").innerText="0";
+	document.getElementById("cargo-rocket-count").innerText="0";
+	document.getElementById("cargo-ship-count").innerText="0";
+	//TODO Finish updating info
+	var bases = document.getElementById("base");
+    var baseButtons = bases.childNodes;
+    console.log(baseButtons);
+	for(var i = 0; i < baseButtons.length; i++){
+        console.log(i);
+        console.log(baseButtons[i]);
+        if(baseButtons[i].nodeName == "#text"){
+            console.log("Can not format #text");
+        }
+		else if(baseButtons[i].classList.length > 0 && baseButtons[i].classList.contains("orButtons")){
+			baseButtons[i].classList.remove("orButtons");
+        }
+        else if(baseButtons[i].classList.length > 0 && baseButtons[i].classList.contains("yeButtons")){
+			baseButtons[i].classList.remove("yeButtons");
+        }
+        else if(baseButtons[i].classList.length > 0 && baseButtons[i].classList.contains("grButtons")){
+			baseButtons[i].classList.remove("grButtons");
+        }
+        else if(baseButtons[i].classList.length > 0 && baseButtons[i].classList.contains("bluButtons")){
+			baseButtons[i].classList.remove("bluButtons");
+		}
+    }
+    time = AUTON_DURATION;
 
-
+}
 function pager() {
     var openLoaderAnimation = anime({
         targets: '#loader',
@@ -89,6 +123,7 @@ function pager() {
             modetxt.innerText = "Autonomous: ";
             mode = 1;
             startTimer();
+            console.log("Promise if statement");
         }
         closeLoader();
     });
@@ -202,8 +237,8 @@ window.onload = function () {
         pager();
     }
 };
-
-var time = 30;
+var AUTON_DURATION = 15;
+var time = AUTON_DURATION;
 
 function startTimer(a) {
     timerInterval = setInterval(countDown, 100, 0.1);
