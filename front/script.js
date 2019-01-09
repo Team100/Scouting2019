@@ -319,9 +319,8 @@ function updateCRCount(n) {
 var lastCargoShip;
 var CargoShipDeleteTime = -10;
 function updateCSCount(n) {
-    
     if (n === 1 && uniTimer - CargoShipDeleteTime < 3) {
-        data.CargoShip.push(lastCargoShip);
+	data.CargoShip.push(lastCargoShip);
         CargoShipDeleteTime = -10;
     }
     else if (n === 1) {
@@ -331,7 +330,7 @@ function updateCSCount(n) {
         CargoShipDeleteTime = uniTimer;
         lastCargoShip = data.CargoShip.pop();
     }
-    CargoShipp.innerText = data.CargoRocket.length;
+    CargoShipp.innerText = data.CargoShip.length;
 }
 
 function updateEndStatus(n){
