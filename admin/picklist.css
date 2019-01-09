@@ -2,7 +2,8 @@ body{
 	/*overflow: hidden;
 	position: fixed;*/
 	font-family: 'Open Sans',sans-serif !important;
-	background-color: #ee5d65;
+    background-color: #ee5d65;
+    overflow:none;
 }
 
 h1{

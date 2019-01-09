@@ -1,9 +1,19 @@
-var urlParams;
+/**
+ * The parameters from the url
+ */
 
+var urlParams;
+/**
+ * An object with the page parameters in an easy to use format
+ */
 var pageParams = {
 	"team":"000"
 }
-
+/**
+ * Gets the json data from the file
+ * @param {*} url 
+ * @param {*} callback 
+ */
 function ajax_get(url, callback) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -23,7 +33,9 @@ function ajax_get(url, callback) {
     xmlhttp.send();
 }
 
-
+/**
+ * Loads the page with its form
+ */
 function refreshPage(){
 
     var currentUrl = new URL(window.location);
@@ -37,29 +49,33 @@ function refreshPage(){
     }
 
 
-    var formNode = document.createElement("div");
+    var formNode = document.createElement("div"); //the div that the form is in
     formNode.id = "ps-data";
 
 
+    //Load the data from the JSON file using AJAX
     ajax_get('pitscout.json', function(data) {
         
         
-        
+        //Increment through each entry and display it
         for(var i = 0; i < data.questions.length; i++){
             
+            /**
+             * The question being worked upon
+             */
             var q = data.questions[i];
             console.info(data.questions[i]);
             
             var questionNode = document.createElement("div");
             questionNode.setAttribute("id", "psq-"+i);
 
-            if(q.type == "header"){
+            if(q.type == "header"){ //Generate a header object
                 var h1 = document.createElement("h1");
                 var content = document.createTextNode(q.content);
                 h1.appendChild(content);
                 questionNode.appendChild(h1);
             }
-            else if (q.type == "alert"){
+            else if (q.type == "alert"){ //Generate an alert object
                 var alert = document.createElement("div")
                 alert.classList.add("alert");
                 alert.classList.add("alert-"+q.category);
@@ -69,10 +85,10 @@ function refreshPage(){
                 questionNode.appendChild(alert);
             }
             
-            else{
+            else{ //Any object that has a question number
                 var prompt = document.createTextNode(q.prompt);
                 questionNode.appendChild(prompt);
-                if(q.type == "option"){
+                if(q.type == "option"){ //Add a dropdown
                     var selector = document.createElement("select");
                     selector.classList.add("form-control");
                     selector.classList.add("form-control-lg");
@@ -85,7 +101,7 @@ function refreshPage(){
                     console.log(questionNode);
                     
                 }
-                else if(q.type == "num"){
+                else if(q.type == "num"){ //Add a number input
                     var input = document.createElement("input");
                     input.setAttribute("inputmode","numeric");
                     input.setAttribute("pattern","[0-9]*");
