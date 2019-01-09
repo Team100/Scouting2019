@@ -43,9 +43,10 @@ function registerButtonTaps(){
 function startMatch() {
     if(document.getElementById("matchnum").value && document.getElementById("teamnum").value){
         data = {
-            switch: [],
-            scale: [],
-            exchange: [],
+            HatchRocket: [],
+            HatchShip: [],
+            CargoRocket: [],
+            CargoShip:[],
             disable: false,
             brownout: false,
             break: false,
@@ -114,9 +115,10 @@ var timer;
 var timerInterval;
 var mode = 1;
 
-let switchp;
-let scalep;
-let exchangep;
+let HatchRocketp;
+let HatchShipp;
+let CargoRocketp;
+let CargoShipp;
 
 let disable;
 let brownout;
@@ -125,9 +127,10 @@ let crossline;
 
 window.onload = function () {
 	registerButtonTaps();	
-    switchp = document.getElementById("hatch-rocket-count");
-    scalep = document.getElementById("hatch-ship-count");
-    exchangep = document.getElementById("cargo-rocket-count");
+    HatchRocketp = document.getElementById("hatch-rocket-count");
+    HatchShipp = document.getElementById("hatch-ship-count");
+    CargoRocketp = document.getElementById("cargo-rocket-count");
+    CargoShipp = document.getElementById("cargo-ship-count");
     timer = document.getElementById("time");
 
     disable = (document.getElementById("base")).getElementsByClassName("yeButton")[0];
@@ -258,45 +261,84 @@ function startTele() {
 
 
 
-var lastSwitch;
-var switchDeleteTime = -10;
+var lastHatchRocket;
+var HatchRocketDeleteTime = -10;
 
 function updateHRCount(n) {
-    if (n === 1 && uniTimer - switchDeleteTime < 3) {
-        data.switch.push(lastSwitch);
-        switchDeleteTime = -10;
+    if (n === 1 && uniTimer - HatchRocketDeleteTime < 3) {
+        data.HatchRocket.push(lastHatchRocket);
+        HatchRocketDeleteTime = -10;
     }
     else if (n === 1) {
-        data.switch.push(uniTimer);
+        data.HatchRocket.push(uniTimer);
     }
     else {
-        switchDeleteTime = uniTimer;
-        lastSwitch = data.switch.pop();
+        HatchRocketDeleteTime = uniTimer;
+        lastHatchRocket = data.HatchRocket.pop();
     }
-    switchp.innerText = data.switch.length;
+    HatchRocketp.innerText = data.HatchRocket.length;
 }
 
-var lastScale;
-var scaleDeleteTime = -10;
+var lastHatchShip;
+var HatchShipDeleteTime = -10;
 
 function updateHSCount(n) {
-    if (n === 1 && uniTimer - scaleDeleteTime < 3) {
-        data.scale.push(lastScale);
-        scaleDeleteTime = -10;
+    if (n === 1 && uniTimer - HatchShipDeleteTime < 3) {
+        data.HatchShip.push(lastHatchShip);
+        HatchShipDeleteTime = -10;
     }
     else if (n === 1) {
-        data.scale.push(uniTimer);
+        data.HatchShip.push(uniTimer);
     }
     else {
-        scaleDeleteTime = uniTimer;
-        lastScale = data.scale.pop();
+        HatchShipDeleteTime = uniTimer;
+        lastHatchShip = data.HatchShip.pop();
     }
-    scalep.innerText = data.scale.length;
+    HatchShipp.innerText = data.HatchShip.length;
 }
 
-var lastExchange;
-var exchangeDeleteTime = -10;
+var lastCargoRocket;
+var CargoRocketDeleteTime = -10;
 
+
+
+function updateCRCount(n) {
+    if (n === 1 && uniTimer - CargoRocketDeleteTime < 3) {
+        data.CargoRocket.push(lastCargoRocket);
+        CargoRocketDeleteTime = -10;
+    }
+    else if (n === 1) {
+        data.CargoRocket.push(uniTimer);
+    }
+    else {
+        CargoRocketDeleteTime = uniTimer;
+        lastCargoRocket = data.CargoRocket.pop();
+    }
+    CargoRocketp.innerText = data.CargoRocket.length;
+}
+var lastCargoShip;
+var CargoShipDeleteTime = -10;
+function updateCSCount(n) {
+    
+    if (n === 1 && uniTimer - CargoShipDeleteTime < 3) {
+        data.CargoShip.push(lastCargoShip);
+        CargoShipDeleteTime = -10;
+    }
+    else if (n === 1) {
+        data.CargoShip.push(uniTimer);
+    }
+    else {
+        CargoShipDeleteTime = uniTimer;
+        lastCargoShip = data.CargoShip.pop();
+    }
+    CargoShipp.innerText = data.CargoRocket.length;
+}
+
+function updateEndStatus(n){
+    if(n >= -1){
+        data.endstate = n;
+    }
+}
 
 function goToQRPage(){
     page = pages.QR;
@@ -320,39 +362,4 @@ function goToQRPage(){
         
     });
     pager();
-}
-function updateCRCount(n) {
-    if (n === 1 && uniTimer - exchangeDeleteTime < 3) {
-        data.exchange.push(lastExchange);
-        exchangeDeleteTime = -10;
-    }
-    else if (n === 1) {
-        data.exchange.push(uniTimer);
-    }
-    else {
-        exchangeDeleteTime = uniTimer;
-        lastExchange = data.exchange.pop();
-    }
-    exchangep.innerText = data.exchange.length;
-}
-
-function updateCSCount(n) {
-    if (n === 1 && uniTimer - exchangeDeleteTime < 3) {
-        data.exchange.push(lastExchange);
-        exchangeDeleteTime = -10;
-    }
-    else if (n === 1) {
-        data.exchange.push(uniTimer);
-    }
-    else {
-        exchangeDeleteTime = uniTimer;
-        lastExchange = data.exchange.pop();
-    }
-    exchangep.innerText = data.exchange.length;
-}
-
-function updateEndStatus(n){
-    if(n >= -1){
-        data.endstate = n;
-    }
 }
