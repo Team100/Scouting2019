@@ -1,3 +1,8 @@
+/**
+ * Runs each time the window is loaded
+ * 
+ * Calls loadPage()
+ */
 window.onload = function(){
     var backNav = document.getElementsByClassName("goBack");
     for(var i = 0; i < backNav.length; i++){
