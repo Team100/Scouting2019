@@ -286,6 +286,16 @@ h1 {
     padding-top: 8px;
 }
 
+#qrcode{
+    position: fixed !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) !important;
+    border: 5px white;
+    width: 90%;
+    height: 90%;
+}
+
 #loader{
     height: 100%;
     width: 0px;

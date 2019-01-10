@@ -388,11 +388,11 @@ function goToQRPage(){
     page = pages.QR;
     var widthToSet = 0;
     if(window.innerWidth < window.innerHeight - 64){
-        widthToSet = window.innerWidth;
+        widthToSet = window.innerWidth-25;
         console.info("Width is less");
     }
     else{
-        widthToSet = window.innerHeight - 64;
+        widthToSet = window.innerHeight - 64-25;
         console.info("Height is less");
     }
     var qrcode = new QRCode("qrcode", {
