@@ -207,25 +207,35 @@ window.onload = function () {
 
 
 
-    var assistClimb = document.getElementById("ep-assist-climb");
-    var climb = document.getElementById("ep-self-climb");
-    var assistedClimb = document.getElementById("ep-assisted-climb");
+    var l3a = document.getElementById("ep-l3a");//Level 3 Assist
+    var l3 = document.getElementById("ep-l3");
+    var l2a = document.getElementById("ep-l2a");
+    var l2 = document.getElementById("ep-l2");
+    var l1 = document.getElementById("ep-l1");
     var noClimb = document.getElementById("ep-none");
 
-    assistClimb.onclick = function(){
-        data.endstate = 0;
+    l3a.onclick = function(){
+        data.endstate =6;
         goToQRPage();
     }
-    climb.onclick = function(){
-        data.endstate = 1;
+    l3.onclick = function(){
+        data.endstate = 5;
         goToQRPage();
     }
-    assistedClimb.onclick = function(){
+    l2a.onclick = function(){
+        data.endstate = 4;
+        goToQRPage();
+    }
+    l2.onclick = function(){
+        data.endstate = 3;
+        goToQRPage();
+    }
+    l1.onclick = function(){
         data.endstate = 2;
         goToQRPage();
     }
     noClimb.onclick = function(){
-        data.endstate = 3;
+        data.endstate = 1;
         goToQRPage();
     }
 
