@@ -34,19 +34,22 @@ function registerButtonTaps(){
 	 * this format if it doesn't support inline onclick
 	 */
 	document.getElementById("login-login").addEventListener('click',goToMatchSetUp);
-	document.getElementById("matchsetup-start").addEventListener('click',startMatch);
+    document.getElementById("matchsetup-start-1").addEventListener('click',startMatch(1));
+    document.getElementById("matchsetup-start-2").addEventListener('click', startMatch(2));
 }
 
 /**
  * The code to run at the start of a match. Instantiates a timer
  **/
-function startMatch() {
+function startMatch(id) {
+    
     if(document.getElementById("matchnum").value && document.getElementById("teamnum").value){
 	    data = {
             HatchRocket: [],
             HatchShip: [],
             CargoRocket: [],
             CargoShip:[],
+
             disable: false,
             brownout: false,
             break: false,
@@ -59,6 +62,7 @@ function startMatch() {
             }
         };
         page = pages.DATAENTRY;
+        data.start = id;
         data.metadata.scouter = scouter;
         data.metadata.matchNumber = document.getElementById("matchnum").value;
         data.metadata.teamNumber = document.getElementById("teamnum").value;
@@ -247,8 +251,10 @@ window.onload = function () {
         pager();
     }
 };
+
 var AUTON_DURATION = 15;
 var time = AUTON_DURATION;
+
 
 function startTimer(a) {
     timerInterval = setInterval(countDown, 100, 0.1);

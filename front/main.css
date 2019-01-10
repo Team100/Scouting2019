@@ -305,3 +305,9 @@ h1 {
     background-color: #f17171;
     z-index: 999;
 }
+
+#qr{
+    margin: 2px;
+    border-color: #fff;
+    border-width: 2px;
+}
