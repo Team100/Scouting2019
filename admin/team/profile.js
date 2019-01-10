@@ -16,7 +16,8 @@ function loadPage(){
 
 	pageParams.team = urlParams.get("team");
 
-	populatePage();	
+	populatePage();
+	document.getElementById("ps").onclick = function(){window.location=`pitscout.html?team=${pageParams.team}`;};
 	
 };
 /**
