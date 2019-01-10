@@ -34,18 +34,22 @@ function registerButtonTaps(){
 	 * this format if it doesn't support inline onclick
 	 */
 	document.getElementById("login-login").addEventListener('click',goToMatchSetUp);
-	document.getElementById("matchsetup-start").addEventListener('click',startMatch);
+    document.getElementById("matchsetup-start-1").addEventListener('click',startMatch(1));
+    document.getElementById("matchsetup-start-2").addEventListener('click', startMatch(2));
 }
 
 /**
  * The code to run at the start of a match. Instantiates a timer
  **/
-function startMatch() {
+function startMatch(id) {
+    
     if(document.getElementById("matchnum").value && document.getElementById("teamnum").value){
-        data = {
-            switch: [],
-            scale: [],
-            exchange: [],
+	    data = {
+            HatchRocket: [],
+            HatchShip: [],
+            CargoRocket: [],
+            CargoShip:[],
+
             disable: false,
             brownout: false,
             break: false,
@@ -58,16 +62,51 @@ function startMatch() {
             }
         };
         page = pages.DATAENTRY;
+        data.start = id;
         data.metadata.scouter = scouter;
         data.metadata.matchNumber = document.getElementById("matchnum").value;
         data.metadata.teamNumber = document.getElementById("teamnum").value;
         console.log(data)
+        resetDataEntryPage();
+
         pager();
     }
     
 }
+/**
+ * Reset the values on the Data Entry Page
+ */
+function resetDataEntryPage(){
+	document.getElementById("hatch-rocket-count").innerText="0";
+	document.getElementById("hatch-ship-count").innerText="0";
+	document.getElementById("cargo-rocket-count").innerText="0";
+	document.getElementById("cargo-ship-count").innerText="0";
+	//TODO Finish updating info
+	var bases = document.getElementById("base");
+    var baseButtons = bases.childNodes;
+    console.log(baseButtons);
+	for(var i = 0; i < baseButtons.length; i++){
+        console.log(i);
+        console.log(baseButtons[i]);
+        if(baseButtons[i].nodeName == "#text"){
+            console.log("Can not format #text");
+        }
+		else if(baseButtons[i].classList.length > 0 && baseButtons[i].classList.contains("orButtons")){
+			baseButtons[i].classList.remove("orButtons");
+        }
+        else if(baseButtons[i].classList.length > 0 && baseButtons[i].classList.contains("yeButtons")){
+			baseButtons[i].classList.remove("yeButtons");
+        }
+        else if(baseButtons[i].classList.length > 0 && baseButtons[i].classList.contains("grButtons")){
+			baseButtons[i].classList.remove("grButtons");
+        }
+        else if(baseButtons[i].classList.length > 0 && baseButtons[i].classList.contains("bluButtons")){
+			baseButtons[i].classList.remove("bluButtons");
+		}
+    }
+    time = AUTON_DURATION;
 
-
+}
 function pager() {
     var openLoaderAnimation = anime({
         targets: '#loader',
@@ -88,6 +127,7 @@ function pager() {
             modetxt.innerText = "Autonomous: ";
             mode = 1;
             startTimer();
+            console.log("Promise if statement");
         }
         closeLoader();
     });
@@ -114,9 +154,10 @@ var timer;
 var timerInterval;
 var mode = 1;
 
-let switchp;
-let scalep;
-let exchangep;
+let HatchRocketp;
+let HatchShipp;
+let CargoRocketp;
+let CargoShipp;
 
 let disable;
 let brownout;
@@ -125,9 +166,10 @@ let crossline;
 
 window.onload = function () {
 	registerButtonTaps();	
-    switchp = document.getElementById("switch-count");
-    scalep = document.getElementById("scale-count");
-    exchangep = document.getElementById("exchange-count");
+    HatchRocketp = document.getElementById("hatch-rocket-count");
+    HatchShipp = document.getElementById("hatch-ship-count");
+    CargoRocketp = document.getElementById("cargo-rocket-count");
+    CargoShipp = document.getElementById("cargo-ship-count");
     timer = document.getElementById("time");
 
     disable = (document.getElementById("base")).getElementsByClassName("yeButton")[0];
@@ -169,25 +211,35 @@ window.onload = function () {
 
 
 
-    var assistClimb = document.getElementById("ep-assist-climb");
-    var climb = document.getElementById("ep-self-climb");
-    var assistedClimb = document.getElementById("ep-assisted-climb");
+    var l3a = document.getElementById("ep-l3a");//Level 3 Assist
+    var l3 = document.getElementById("ep-l3");
+    var l2a = document.getElementById("ep-l2a");
+    var l2 = document.getElementById("ep-l2");
+    var l1 = document.getElementById("ep-l1");
     var noClimb = document.getElementById("ep-none");
 
-    assistClimb.onclick = function(){
-        data.endstate = 0;
+    l3a.onclick = function(){
+        data.endstate =6;
         goToQRPage();
     }
-    climb.onclick = function(){
-        data.endstate = 1;
+    l3.onclick = function(){
+        data.endstate = 5;
         goToQRPage();
     }
-    assistedClimb.onclick = function(){
+    l2a.onclick = function(){
+        data.endstate = 4;
+        goToQRPage();
+    }
+    l2.onclick = function(){
+        data.endstate = 3;
+        goToQRPage();
+    }
+    l1.onclick = function(){
         data.endstate = 2;
         goToQRPage();
     }
     noClimb.onclick = function(){
-        data.endstate = 3;
+        data.endstate = 1;
         goToQRPage();
     }
 
@@ -200,7 +252,9 @@ window.onload = function () {
     }
 };
 
-var time = 30;
+var AUTON_DURATION = 15;
+var time = AUTON_DURATION;
+
 
 function startTimer(a) {
     timerInterval = setInterval(countDown, 100, 0.1);
@@ -258,55 +312,93 @@ function startTele() {
 
 
 
-var lastSwitch;
-var switchDeleteTime = -10;
+var lastHatchRocket;
+var HatchRocketDeleteTime = -10;
 
-function updateSwitchCount(n) {
-    if (n === 1 && uniTimer - switchDeleteTime < 3) {
-        data.switch.push(lastSwitch);
-        switchDeleteTime = -10;
+function updateHRCount(n) {
+    if (n === 1 && uniTimer - HatchRocketDeleteTime < 3) {
+        data.HatchRocket.push(lastHatchRocket);
+        HatchRocketDeleteTime = -10;
     }
     else if (n === 1) {
-        data.switch.push(uniTimer);
+        data.HatchRocket.push(uniTimer);
     }
     else {
-        switchDeleteTime = uniTimer;
-        lastSwitch = data.switch.pop();
+        HatchRocketDeleteTime = uniTimer;
+        lastHatchRocket = data.HatchRocket.pop();
     }
-    switchp.innerText = data.switch.length;
+    HatchRocketp.innerText = data.HatchRocket.length;
 }
 
-var lastScale;
-var scaleDeleteTime = -10;
+var lastHatchShip;
+var HatchShipDeleteTime = -10;
 
-function updateScaleCount(n) {
-    if (n === 1 && uniTimer - scaleDeleteTime < 3) {
-        data.scale.push(lastScale);
-        scaleDeleteTime = -10;
+function updateHSCount(n) {
+    if (n === 1 && uniTimer - HatchShipDeleteTime < 3) {
+        data.HatchShip.push(lastHatchShip);
+        HatchShipDeleteTime = -10;
     }
     else if (n === 1) {
-        data.scale.push(uniTimer);
+        data.HatchShip.push(uniTimer);
     }
     else {
-        scaleDeleteTime = uniTimer;
-        lastScale = data.scale.pop();
+        HatchShipDeleteTime = uniTimer;
+        lastHatchShip = data.HatchShip.pop();
     }
-    scalep.innerText = data.scale.length;
+    HatchShipp.innerText = data.HatchShip.length;
 }
 
-var lastExchange;
-var exchangeDeleteTime = -10;
+var lastCargoRocket;
+var CargoRocketDeleteTime = -10;
 
+
+
+function updateCRCount(n) {
+    if (n === 1 && uniTimer - CargoRocketDeleteTime < 3) {
+        data.CargoRocket.push(lastCargoRocket);
+        CargoRocketDeleteTime = -10;
+    }
+    else if (n === 1) {
+        data.CargoRocket.push(uniTimer);
+    }
+    else {
+        CargoRocketDeleteTime = uniTimer;
+        lastCargoRocket = data.CargoRocket.pop();
+    }
+    CargoRocketp.innerText = data.CargoRocket.length;
+}
+var lastCargoShip;
+var CargoShipDeleteTime = -10;
+function updateCSCount(n) {
+    if (n === 1 && uniTimer - CargoShipDeleteTime < 3) {
+	data.CargoShip.push(lastCargoShip);
+        CargoShipDeleteTime = -10;
+    }
+    else if (n === 1) {
+        data.CargoShip.push(uniTimer);
+    }
+    else {
+        CargoShipDeleteTime = uniTimer;
+        lastCargoShip = data.CargoShip.pop();
+    }
+    CargoShipp.innerText = data.CargoShip.length;
+}
+
+function updateEndStatus(n){
+    if(n >= -1){
+        data.endstate = n;
+    }
+}
 
 function goToQRPage(){
     page = pages.QR;
     var widthToSet = 0;
     if(window.innerWidth < window.innerHeight - 64){
-        widthToSet = window.innerWidth;
+        widthToSet = window.innerWidth-25;
         console.info("Width is less");
     }
     else{
-        widthToSet = window.innerHeight - 64;
+        widthToSet = window.innerHeight - 64-25;
         console.info("Height is less");
     }
     var qrcode = new QRCode("qrcode", {
@@ -320,24 +412,4 @@ function goToQRPage(){
         
     });
     pager();
-}
-function updateExchangeCount(n) {
-    if (n === 1 && uniTimer - exchangeDeleteTime < 3) {
-        data.exchange.push(lastExchange);
-        exchangeDeleteTime = -10;
-    }
-    else if (n === 1) {
-        data.exchange.push(uniTimer);
-    }
-    else {
-        exchangeDeleteTime = uniTimer;
-        lastExchange = data.exchange.pop();
-    }
-    exchangep.innerText = data.exchange.length;
-}
-
-function updateEndStatus(n){
-    if(n >= -1){
-        data.endstate = n;
-    }
 }

@@ -57,7 +57,10 @@
             <br>
             <br>
         </div>
-        <button class="button orButton inner-100" id="matchsetup-start">Start</button>
+        <button class="button orButton inner-100" id="matchsetup-start-2">Start Level 2</button>
+        <br />
+        
+        <button class="button bluButton inner-100" id="matchsetup-start-1">Start Level 1</button>
     </div>
 </div>
 <div id="data-entry">
@@ -67,24 +70,31 @@
         </div>
     </div>
     <div id="row0" class="entryRow">
-        <p class="centerText">Switch: <span id="switch-count">0</span></p>
+        <p class="centerText">Hatch in Rocket <span id="hatch-rocket-count">0</span></p>
         <div class="container-incr">
-            <button onclick="updateSwitchCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="fal fa-minus"></i></button>
-            <button onclick="updateSwitchCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="fal fa-plus"></i></button>
+            <button onclick="updateHRCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="fal fa-minus"></i></button>
+            <button onclick="updateHRCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="fal fa-plus"></i></button>
         </div>
     </div>
     <div id="row1" class="entryRow">
-        <p class="centerText">Scale: <span id="scale-count">0</span></p>
+        <p class="centerText">Hatch in ship: <span id="hatch-ship-count">0</span></p>
         <div class="container-incr">
-            <button onclick="updateScaleCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="fal fa-minus"></i></button>
-            <button onclick="updateScaleCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="fal fa-plus"></i></button>
+            <button onclick="updateHSCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="fal fa-minus"></i></button>
+            <button onclick="updateHSCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="fal fa-plus"></i></button>
         </div>
     </div>
     <div id="row2" class="entryRow">
-        <p class="centerText">Exchange: <span id="exchange-count">0</span></p>
+        <p class="centerText">Cargo in Rocket: <span id="cargo-rocket-count">0</span></p>
         <div class="container-incr">
-            <button onclick="updateExchangeCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="fal fa-minus"g></i></button>
-            <button onclick="updateExchangeCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="fal fa-plus"></i></button>
+            <button onclick="updateCRCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="fal fa-minus"g></i></button>
+            <button onclick="updateCRCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="fal fa-plus"></i></button>
+        </div>
+    </div>
+    <div id="row3" class="entryRow">
+        <p class="centerText">Cargo in Ship: <span id="cargo-ship-count">0</span></p>
+        <div class="container-incr">
+            <button onclick="updateCSCount(0)" class="orButton largeButton" style="flex-grow: 1"><i class="fal fa-minus"g></i></button>
+            <button onclick="updateCSCount(1)" class="grButton largeButton" style="flex-grow: 2"><i class="fal fa-plus"></i></button>
         </div>
     </div>
     <div id="base" class="container-block">
@@ -96,10 +106,15 @@
 </div>
 <div id="endPos">
     <h1 class="centerText">END POS</h1>
-    <button class="yeButton largeButton inner-100 entryRow" id="ep-assist-climb">Assist Climb</button>
-    <button class="orButton largeButton inner-100 entryRow" id="ep-self-climb">Self-Climb</button>
-    <button class="bluButton largeButton inner-100 entryRow" id="ep-assisted-climb">Assist<b>ed</b> climb</button>
-    <button class="grButton largeButton inner-100 entryRow" id="ep-none">None</button>
+    <button class="yeButton largeButton inner-100 entryRow" id="ep-l3">Level 3</button>
+    <button class="orButton largeButton inner-100 entryRow" id="ep-l3a">Level 3 Assist</button>
+    <button class="bluButton largeButton inner-100 entryRow" id="ep-l2">Level 2</button>
+    <button class="grButton largeButton inner-100 entryRow" id="ep-l2a">Level 2 Assist</button>
+    <button class="orButton largeButton inner-100 entryRow" id="ep-l1">Level 1</button>
+    <button class="bluButton largeButton inner-100 entryRow" id="ep-none">None</button>
+
+
+
 </div>
 <div id="qr">
     <div id="qrcode"></div>

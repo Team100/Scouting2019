@@ -1,8 +1,14 @@
+/**
+ * The parameters from the url
+ */
 var urlParams;
 
 var pageParams = {
 	"team":"000"
 }
+/**
+ * Gets the page parameters and populates the page
+ */
 function loadPage(){
 	console.log("Page loaded");
 	var currentUrl = new URL(window.location);
@@ -10,9 +16,13 @@ function loadPage(){
 
 	pageParams.team = urlParams.get("team");
 
-	populatePage();	
+	populatePage();
+	document.getElementById("ps").onclick = function(){window.location=`pitscout.html?team=${pageParams.team}`;};
 	
 };
+/**
+ * Populates each page element with the appropriate data
+ */
 function populatePage(){
 	var teamNumberInstances = document.getElementsByClassName("data-team-num");
 	for(var i = 0; i < teamNumberInstances.length; i++){
@@ -32,11 +42,14 @@ function populatePage(){
 	
 }
 
+/**
+ * Renders the Plotly.js graph for each team
+ */
 function renderTeamScoringData(){
 	// TODO Update to have actual team scoring data
 	var data = [{
-		values: [19, 26, 55],
-		labels: ['Residential', 'Non-Residential', 'Utility'],
+		values: [19, 26, 55, 20],
+		labels: ['Cargo in Ship', 'Cargo in Rocket', 'Hatch in Ship', 'Hatch in Rocket'],
 		type: 'pie'
 	  }];
 	  

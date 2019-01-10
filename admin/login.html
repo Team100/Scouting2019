@@ -11,12 +11,69 @@
     <head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <link href="global.css" rel="stylesheet" type="text/css" />
+            <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDb93QE2tpS5ROHIBfbMh_re5Ogg-nsCzA",
+    authDomain: "scouting-2019-team-100.firebaseapp.com",
+    databaseURL: "https://scouting-2019-team-100.firebaseio.com",
+    projectId: "scouting-2019-team-100",
+    storageBucket: "scouting-2019-team-100.appspot.com",
+    messagingSenderId: "922379069595"
+  };
+  firebase.initializeApp(config);
+</script>
+<style>
+	h1{left:50%;top:50%;position:fixed;text-align:center;transform:translate(-50%,-50%);}
+    h3{
+    left: 50% !important;
+    position: fixed;
+    text-align: center;
+    transform: translate(-50%,0);
+
+    }
+	html,body{
+		top:0;
+		left:0;
+		position:fixed;
+	}
+</style>
     </head>
     <body>
 
         <h1>Please Wait</h1>
+        <h3 id="hellomessage"></h3>
         <script>
-            window.location = "menu.html";
+            var currentUrl = new URL(window.location);
+	        urlParams = new URLSearchParams(currentUrl.search);
+
+            var userID = urlParams.get("id");
+            var db = firebase.firestore();
+
+            db.settings({
+  timestampsInSnapshots: true
+});
+            var usersRef = db.collection("user-controller").doc(userID);
+            usersRef.get().then(function(doc) {
+                if (doc.exists) {
+                    console.log("Document data:", doc.data());
+                    document.getElementById("hellomessage").innerText = `Hello ${doc.data().name}`;
+                    localStorage.setItem("userID", userID);
+                    localStorage.setItem("userName", doc.data().name);
+                    window.setTimeout(function(){window.location = "menu.html"},3000);
+                } else {
+                    //No User
+                    console.log("User does not exist");
+                    document.getElementById("hellomessage").innerText = `User with ID ${userID} not found`;
+                    window.setTimeout(function(){window.location = "index.html"},3000);
+
+                }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+                document.getElementById("hellomessage").innerText = `An error has occured`;
+                    window.setTimeout(function(){document.getElementById("hellomessage").innerText = `Error: ${error}`;window.setTimeout(function(){window.location = "index.html"},3000);},3000);
+            });
         </script>
     </body>
 </html>

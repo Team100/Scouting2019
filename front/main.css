@@ -10,6 +10,7 @@ html, body {
     bottom: 0;
     background-color: #ffffff;
     font-family: 'Open Sans', sans-serif;
+    overflow: none;
 }
 
 h1 {
@@ -186,7 +187,7 @@ h1 {
 }
 
 .entryRow {
-    height: 20% !important;
+    height: 15% !important;
     padding-bottom: 0;
     margin-bottom: 0;
     width: 100%;
@@ -198,7 +199,9 @@ h1 {
     vertical-align: middle;
     font-weight: 300;
 }
-
+.entryRow .largeButton{
+    height: 100%;
+}
 .base {
     height: 25%;
 }
@@ -283,6 +286,16 @@ h1 {
     padding-top: 8px;
 }
 
+#qrcode{
+    position: fixed !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) !important;
+    border: 5px white;
+    width: 90%;
+    height: 90%;
+}
+
 #loader{
     height: 100%;
     width: 0px;
@@ -291,4 +304,10 @@ h1 {
     position: absolute;
     background-color: #f17171;
     z-index: 999;
+}
+
+#qr{
+    margin: 2px;
+    border-color: #fff;
+    border-width: 2px;
 }
