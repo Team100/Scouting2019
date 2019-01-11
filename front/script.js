@@ -7,7 +7,7 @@ var pages = {
     QR:"qr"
 };
 
-
+var POST_URL = "https://us-central1-scouting-2019-team-100.cloudfunctions.net/main/ingress?data=";
 var data;
 var page = pages.LOGIN;
 
@@ -34,15 +34,21 @@ function registerButtonTaps(){
 	 * this format if it doesn't support inline onclick
 	 */
 	document.getElementById("login-login").addEventListener('click',goToMatchSetUp);
-    document.getElementById("matchsetup-start-1").addEventListener('click',startMatch(1));
-    document.getElementById("matchsetup-start-2").addEventListener('click', startMatch(2));
+    document.getElementById("matchsetup-start-1").addEventListener('click',startMatchLevel1);
+    document.getElementById("matchsetup-start-2").addEventListener('click', startMatchLevel2);
 }
 
 /**
  * The code to run at the start of a match. Instantiates a timer
  **/
+function startMatchLevel1(){
+    startMatch(1);
+}
+function startMatchLevel2(){
+    startMatch(2);
+}
 function startMatch(id) {
-    
+    console.log("STARTING");
     if(document.getElementById("matchnum").value && document.getElementById("teamnum").value){
 	    data = {
             HatchRocket: [],
@@ -401,9 +407,11 @@ function goToQRPage(){
         widthToSet = window.innerHeight - 64-25;
         console.info("Height is less");
     }
+    var qrurl = `${POST_URL}'${JSON.stringify(data)}'`;
+    console.info(qrurl);
     var qrcode = new QRCode("qrcode", {
         
-        text: JSON.stringify(data),
+        text:qrurl,
         width: widthToSet,
         height: widthToSet,
         colorDark : "#000000",
