@@ -407,7 +407,7 @@ function goToQRPage(){
         widthToSet = window.innerHeight - 64-25;
         console.info("Height is less");
     }
-    var qrurl = `${POST_URL}'${JSON.stringify(data)}'`;
+    var qrurl = `${POST_URL}${JSON.stringify(data)}`;
     console.info(qrurl);
     var qrcode = new QRCode("qrcode", {
         

@@ -9,6 +9,8 @@ var urlParams;
 var pageParams = {
 	"team":"000"
 }
+
+var QUESTION_URL = "https://alexanderbeaver799710.github.io/t100scoutingremote_resources/ps.json";
 /**
  * Gets the json data from the file
  * @param {*} url 
@@ -54,8 +56,8 @@ function refreshPage(){
 
 
     //Load the data from the JSON file using AJAX
-    ajax_get('pitscout.json', function(data) {
-        
+    ajax_get(QUESTION_URL, function(data) {
+        console.log(data);
         
         //Increment through each entry and display it
         for(var i = 0; i < data.questions.length; i++){
