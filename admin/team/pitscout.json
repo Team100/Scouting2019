@@ -7,7 +7,7 @@
         },
         {
             "type":"header",
-            "content":"1. Intro"
+            "content":"Intro"
         },
         {
             "type":"option",
@@ -25,27 +25,14 @@
             "prompt":"2. How many wheels total?",
             "hint":"Enter Here"
         },
-        {
-            "type":"option",
-            "prompt": "3. What is their best mechanism?",
-            "options":[
-                "Drivetrain",
-                "Shooter",
-                "Intake",
-                "Elevator",
-                "Outtake",
-                "Climber",
-                "Climb-Assist",
-                "Other"
-            ]
-        },
+        
         {
             "type":"header",
-            "content":"Auton"
+            "content":"Sandstorm"
         },
         {
             "type":"option",
-            "prompt":"4. Cross the line?",
+            "prompt":"3. Cross the line?",
             "options":[
                 "No",
                 "Yes (unrealiable)",
@@ -54,32 +41,42 @@
         },
         {
             "type":"option",
-            "prompt":"5. Switch",
+            "prompt":"4. Cargo",
             "options":[
                 "No",
-                "Yes (unreliable)",
-                "Yes (reliable)"
+                "Yes (ship)",
+                "Yes (rocket)",
+                "Yes (both)"
             ]
         },
         {
             "type":"num",
-            "prompt":"5a. How Many?",
+            "prompt":"4a. How Many?",
             "hint":"Enter Here"
         },
         {
             "type":"option",
-            "prompt":"6. Scale",
+            "prompt":"5. Hatch",
             "options":[
                 "No",
-                "Yes (unreliable)",
-                "Yes (reliable)"
+                "Yes (ship)",
+                "Yes (rocket)",
+                "Yes (both)"
                 
             ]
         },
         {
             "type":"num",
-            "prompt": "6a. How Many?",
+            "prompt": "5a. How Many?",
             "hint":"Enter Here"
+        },
+        {
+            "type":"option",
+            "prompt":"6. Starting Pos",
+            "options":[
+                "Level 1",
+                "Level 2 and Level 1"
+            ]
         },
         {
             "type":"option",
@@ -91,9 +88,24 @@
             ]
         },
         {
-            "type":"num",
-            "prompt":"7a. How Many?",
-            "hint":"Enter Here"
+            "type":"option",
+            "prompt":"8. How do they move during Sandstorm?",
+            "options":[
+                "Do not move",
+                "Full Auton",
+                "Driver (w/ vision)",
+                "Driver (w/o vision)",
+                "Auton and driver segments"
+            ]
+        },
+        {
+            "type":"option",
+            "prompt":"9. Do they have auton driver assistance?",
+            "options":[
+                "No",
+                "Yes (unreliable)",
+                "Yes (reliable)"
+            ]
         }
         
     ]
