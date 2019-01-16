@@ -34,10 +34,8 @@ function registerButtonTaps(){
 	 * this format if it doesn't support inline onclick
 	 */
 	document.getElementById("login-login").addEventListener('click',goToMatchSetUp);
-    document.getElementById("matchsetup-start-1").addEventListener('click',startMatch(1));
-    document.getElementById("matchsetup-start-2").addEventListener('click', startMatch(2));
+	console.log("Buttons registered");
 }
-
 /**
  * The code to run at the start of a match. Instantiates a timer
  **/

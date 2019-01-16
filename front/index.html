@@ -8,11 +8,11 @@
     <!--TODO: MIGRATE TO LOCAL UIkit FOR THE TABLETS-->
 
     <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css"/>
+    <link rel="stylesheet" href="./UIKit/css/uikit.min.css"/>
 
     <!-- UIkit JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
+    <script src="./UIKit/js/uikit.min.js"></script>
+    <script src="./UIKit/js/uikit-icons.min.js"></script>
 
 
     <link rel="stylesheet" href="main.css">
@@ -21,7 +21,6 @@
     <script src="qrcode.min.js"></script>
 
 
-    <script src="script.js"></script>
 </head>
 <body>
 <div id="loader" style="width: 0%">&nbsp;</div>
@@ -57,10 +56,10 @@
             <br>
             <br>
         </div>
-        <button class="button orButton inner-100" id="matchsetup-start-2">Start Level 2</button>
+        <button class="button orButton inner-100" id="matchsetup-start-2" onclick="startMatch(2)">Start Level 2</button>
         <br />
         
-        <button class="button bluButton inner-100" id="matchsetup-start-1">Start Level 1</button>
+        <button class="button bluButton inner-100" id="matchsetup-start-1" onclick="startMatch(1)">Start Level 1</button>
     </div>
 </div>
 <div id="data-entry">
@@ -120,5 +119,6 @@
     <div id="qrcode"></div>
     <button class="orButton largeButton inner-100 " id="qr-done">Done</button>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
