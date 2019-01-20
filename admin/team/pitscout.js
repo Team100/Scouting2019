@@ -9,6 +9,8 @@ var urlParams;
 var pageParams = {
 	"team":"000"
 }
+
+var jsonDataURL = "http://frc100-scouting-asset.s3-website-us-west-2.amazonaws.com/pitscout.json";
 /**
  * Gets the json data from the file
  * @param {*} url 
@@ -54,8 +56,10 @@ function refreshPage(){
 
 
     //Load the data from the JSON file using AJAX
-    ajax_get('pitscout.json', function(data) {
-        
+    ajax_get(jsonDataURL, function(data) {
+        document.getElementById("form").appendChild(formNode);
+        document.getElementById("debug").innerText = `SRC: ${jsonDataURL} \n
+        DATA: ${JSON.stringify(data)}`;
         
         //Increment through each entry and display it
         for(var i = 0; i < data.questions.length; i++){
@@ -118,7 +122,7 @@ function refreshPage(){
                 formNode.appendChild(br);
             }
         }
-        document.getElementById("form").appendChild(formNode);
+        
     });
 
 }

@@ -1,10 +1,6 @@
 { 
     "questions":[
-        {
-            "type":"alert",
-            "category":"primary",
-            "content":"Thank you for using a browser supporting local AJAX"
-        },
+        
         {
             "type":"header",
             "content":"Intro"
