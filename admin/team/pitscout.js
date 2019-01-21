@@ -45,6 +45,7 @@ function refreshPage(){
 
     pageParams.team = urlParams.get("team");
     
+    document.getElementById("tn").nodeValue=pageParams.team;
     var tnLocations = document.getElementsByClassName("data-team-num");
     for(var i = 0; i < tnLocations.length; i++){
         tnLocations[i].innerText = pageParams.team;
@@ -88,7 +89,14 @@ function refreshPage(){
                 alert.appendChild(text);
                 questionNode.appendChild(alert);
             }
-            
+            else if(q.type == "submit"){
+                var submit = document.createElement("input");
+                submit.setAttribute("type","submit");
+                submit.setAttribute("value","submit");
+                submit.classList.add("pillButton");
+                submit.classList.add("orButton");
+                questionNode.appendChild(submit);
+            }
             else{ //Any object that has a question number
                 var prompt = document.createTextNode(q.prompt);
                 questionNode.appendChild(prompt);
@@ -101,6 +109,8 @@ function refreshPage(){
                         option.innerText = q.options[x];
                         selector.appendChild(option);
                     }
+                    selector.setAttribute("name","q"+i)
+
                     questionNode.appendChild(selector);
                     console.log(questionNode);
                     
@@ -110,6 +120,7 @@ function refreshPage(){
                     input.setAttribute("inputmode","numeric");
                     input.setAttribute("pattern","[0-9]*");
                     input.setAttribute("placeholder",q.hint);
+                    input.setAttribute("name","q"+i)
                     input.classList.add("smallInput");
                     questionNode.appendChild(input);
                 }
