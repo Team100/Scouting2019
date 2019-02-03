@@ -45,7 +45,8 @@ function refreshPage(){
 
     pageParams.team = urlParams.get("team");
     
-    document.getElementById("tn").nodeValue=pageParams.team;
+    document.getElementById("tn").value=pageParams.team;
+    document.getElementById("scouter").value = localStorage.getItem("userID");
     var tnLocations = document.getElementsByClassName("data-team-num");
     for(var i = 0; i < tnLocations.length; i++){
         tnLocations[i].innerText = pageParams.team;
