@@ -10,3 +10,7 @@
 # Firebase
 .vscode
 node_modules
+
+# Test Data
+functions/match-data.json
+functions/pit-data.json
