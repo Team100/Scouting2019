@@ -1,62 +1,108 @@
 const functions = require('firebase-functions');
 const admin = require("firebase-admin");
+const utils = require("./validate");
 
 admin.initializeApp(functions.config().firebase);
 admin.firestore().settings({timestampsInSnapshots: true});
 
 // TODO: get config from database
 const EVENT = "davis";
+const MatchFields =  {
+    HatchRocket: {
+        type: "array",
+        contains: {
+            type: "number"
+        }
+    },
+    HatchShip: {
+        type: "array",
+        contains: {
+            type: "number"
+        }
+    },
+    CargoRocket: {
+        type: "array",
+        contains: {
+            type: "number"
+        }
+    },
+    CargoShip: {
+        type: "array",
+        contains: {
+            type: "number"
+        }
+    },
+    disable: {
+        type: "boolean"
+    },
+    brownout: {
+        type: "boolean"
+    },
+    break: {
+        type: "boolean"
+    },
+    crossline: {
+        type: "boolean"
+    },
+    endstate: {
+        type: "number"
+    },
+    metadata: {
+        type: "object",
+        properties: {
+            matchNumber: {
+                type: "string"
+            },
+            scouter: {
+                type: "string"
+            },
+            teamNumber: {
+                type: "string"
+            }
+        }
+    },
+    start: {
+        type: "number"
+    }
+};
+const PitFields = {};
 
-// TODO: update for 2019 game
+/*
+Expected JSON format:
+{
+    "type": "match" | "pit",
+    "data": {...}
+}
+*/
 exports.ingress = functions.https.onRequest((request, response) => {
     try {
-        // Validate that data exists
-        if (!request.query.hasOwnProperty("data")) {
+        // Check if POST request
+        if (request.method !== "POST") {
+            response.status(405).send(JSON.stringify({"status": "error", "reason": "Method not supported"}));
+            return;
+        }
+
+        // Validate that data is json
+        if (typeof request.body !== "object") {
             response.status(400).send(JSON.stringify({"status": "error","reason": "Invalid request"}));
             return;
         }
 
-        // Convert query data into JSON
-        let data = JSON.parse(request.query.data);
-
         // Validate json data
-        // Currently only for match data
-        // TODO: pit data
-        if (!data.hasOwnProperty("switch")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
+        if (!request.body.hasOwnProperty("type")) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON: must have 'type' field"}));
             return;
-        } else if (!data.hasOwnProperty("scale")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
+        } else if (!request.body.hasOwnProperty("data")) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON: must have 'data' field"}));
             return;
-        } else if (!data.hasOwnProperty("exchange")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
+        } else if (request.body.type === "match") if (!utils.validateJSON(request.body.data), MatchFields) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.body.type}'`}));
             return;
-        } else if (!data.hasOwnProperty("disable")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
+        } else if (request.body.type === "pit") if (!utils.validateJSON(request.body.data), PitFields) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.body.type}'`}));
             return;
-        } else if (!data.hasOwnProperty("brownout")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
-            return;
-        } else if (!data.hasOwnProperty("break")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
-            return;
-        } else if (!data.hasOwnProperty("crossline")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
-            return;
-        } else if (!data.hasOwnProperty("endstate")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
-            return;
-        } else if (!data.hasOwnProperty("metadata")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
-            return;
-        } else if (!data.metadata.hasOwnProperty("matchNumber")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
-            return;
-        } else if (!data.metadata.hasOwnProperty("scouter")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
-            return;
-        } else if (!data.metadata.hasOwnProperty("teamName")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON format"}));
+        } else {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: unknown type '${request.body.type}'`}));
             return;
         }
 
@@ -67,25 +113,25 @@ exports.ingress = functions.https.onRequest((request, response) => {
                 return;
             }
 
-            let team = doc.data()[data.metadata.teamName];
+            let team = doc.data()[data.metadata.teamNumber];
 
             team.matches.push(data);
             
-            let sumSwitch = 0;
-            let sumScale = 0;
-            let sumExchange = 0;
+            let sumHR = 0, sumHS = 0, sumCR = 0, sumCS = 0;
             for (let match of team.matches) {
-                sumSwitch += match.switch.length;
-                sumScale += match.scale.length;
-                sumExchange += match.exchange.length;
+                sumHR += match.hatchRocket.length;
+                sumHS += match.hatchShip.length;
+                sumCR += match.cargoRocket.length;
+                sumCS += match.cargoShip.length;
             }
-            team.scoring.switch = sumSwitch/team.matches.length;
-            team.scoring.scale = sumScale/team.matches.length;
-            team.scoring.exchange = sumExchange/team.matches.length;
+            team.scoring.hatchRocket = sumHR/team.matches.length;
+            team.scoring.hatchShip = sumHS/team.matches.length;
+            team.scoring.cargoRocket = sumCR/team.matches.length;
+            team.scoring.cargoShip = sumCS/team.matches.length;
 
             // TODO: add processing for lyingIndex, smartScore, & tba-rank
 
-            admin.firestore().collection("events").doc(EVENT).update({"254": team}).then(() => {
+            admin.firestore().collection("events").doc(EVENT).update({[data.metadata.teamNumber]: team}).then(() => {
                 response.status(200).send(JSON.stringify({"status": "success"}))
                 return;
             }).catch(err => {
