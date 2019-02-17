@@ -517,3 +517,9 @@ function processData(){
         
     }
 }
+function logout(){
+	scouter=0;
+	page = pages.LOGIN;
+	document.getElementById('studid').value="";
+	pager();
+}
