@@ -158,7 +158,7 @@
 		{
 			"type":"option",
 			"prompt":"14. What is the highest level that they can score?",
-			"option":[
+			"options":[
 				"Ship",
 				"Rocket LOW",
 				"Rocket MED",
@@ -169,7 +169,7 @@
 		{
 			"type":"option",
 			"prompt":"15. What is their highest endstate?",
-			"option":[
+			"options":[
 				"No Climb",
 				"Level 1 (low)",
 				"Level 2",
@@ -179,7 +179,7 @@
 		{
 			"type":"option",
 			"prompt":"16. Can they assist to endstate?",
-			"option":[
+			"options":[
 				"No Assist",
 				"Level 1 (low)",
 				"Level 2",
