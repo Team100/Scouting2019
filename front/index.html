@@ -27,6 +27,8 @@
 </head>
 <body>
 <div id="loader" style="width: 0%">&nbsp;</div>
+	
+	
 <div id="login">
     <div style="height:30%"></div>
     <div class="inner-75 abs-center ds-large card">
@@ -60,11 +62,12 @@
             <br>
         </div>
         <button class="button orButton inner-100" id="matchsetup-start-2" onclick="startMatch(2)">Start Level 2</button>
-        <br />
         
         <button class="button bluButton inner-100" id="matchsetup-start-1" onclick="startMatch(1)">Start Level 1</button>
     </div>
 </div>
+	
+	
 <div id="data-entry">
     <div class="inner-100 abs-center ds-large card shadow">
         <div class="header">
@@ -106,6 +109,8 @@
         <button class="orButton largeButton baseButton" style="flex-grow: 1">CROSSLINE</button>
     </div>
 </div>
+	
+	
 <div id="endPos">
     <h1 class="centerText">END POS</h1>
     <button class="yeButton largeButton inner-100 entryRow" id="ep-l3">Level 3</button>
@@ -114,22 +119,24 @@
     <button class="grButton largeButton inner-100 entryRow" id="ep-l2a">Level 2 Assist</button>
     <button class="orButton largeButton inner-100 entryRow" id="ep-l1">Level 1</button>
     <button class="bluButton largeButton inner-100 entryRow" id="ep-none">None</button>
-
-
-
 </div>
+	
+	
 <div id="qualitative">
     <h1>Qualitative Data</h1>
     <form id="qualdata">
         
     </form>
     <button class="button orButton inner-100" id="commit-qual" onclick="commitQualData()">Commit</button>
-
 </div>
+	
+	
 <div id="qr">
     <div id="qrcode"></div>
     <button class="orButton largeButton inner-100 " id="qr-done">Done</button>
 </div>
+	
+	
 <script src="qualDataQuestionSchema.js"></script>
 <script src="script.js"></script>
 </body>

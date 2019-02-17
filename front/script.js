@@ -393,6 +393,7 @@ function updateEndStatus(n){
 
 function goToQRPage(){
     page = pages.QR;
+	document.getElementById("qrcode").innerHTML = '';
     var widthToSet = 0;
     if(window.innerWidth < window.innerHeight - 64){
         widthToSet = window.innerWidth-25;
