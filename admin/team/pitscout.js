@@ -10,7 +10,7 @@ var pageParams = {
 	"team":"000"
 }
 
-var jsonDataURL = "http://frc100-scouting-asset.s3-website-us-west-2.amazonaws.com/pitscout.json";
+var jsonDataURL = "https://s3-us-west-2.amazonaws.com/frc100-scouting-asset/pitscout.json";
 /**
  * Gets the json data from the file
  * @param {*} url 
