@@ -105,7 +105,7 @@
         },
 		{
 			"type":"header",
-			content:"Teleop"
+			"content":"Teleop"
 		}, 
 		 {
             "type":"option",
@@ -189,7 +189,7 @@
 		{
 			"type":"header",
 			"content":"Reliability"
-		}
+		},
 		{
 			"type":"num",
 			"prompt":"17. How reliably can they score hatches?",
