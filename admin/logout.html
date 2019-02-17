@@ -1,0 +1,59 @@
+<html>
+    <!--
+        # README
+
+        This page is the login procesor. Validation of the PIN should be done here.
+
+        ## Current State
+
+        Currently there is no logic, it just redirects to `menu.html`
+    -->
+    <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <link href="global.css" rel="stylesheet" type="text/css" />
+            <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDb93QE2tpS5ROHIBfbMh_re5Ogg-nsCzA",
+    authDomain: "scouting-2019-team-100.firebaseapp.com",
+    databaseURL: "https://scouting-2019-team-100.firebaseio.com",
+    projectId: "scouting-2019-team-100",
+    storageBucket: "scouting-2019-team-100.appspot.com",
+    messagingSenderId: "922379069595"
+  };
+  firebase.initializeApp(config);
+</script>
+<style>
+	h1{left:50%;top:50%;position:fixed;text-align:center;transform:translate(-50%,-50%);color:#FFFFFF;}
+    h3{
+    left: 50% !important;
+    position: fixed;
+    text-align: center;
+    transform: translate(-50%,0);
+
+    }
+	html,body{
+		top:0;
+		left:0;
+		position:fixed;
+		background-image: url("lib/img_assets/screenArtboard 1.png");
+		background-attachment:fixed;
+		background-size: cover;
+		background-position: center;
+		margin: none;
+		border: none;
+		padding: none;
+	}
+</style>
+    </head>
+    <body>
+
+        <h1>Logging Out</h1>
+        <script>
+            localStorage.removeItem("userID");
+			localStorage.removeItem("userName");
+			window.setTimeout(function(){window.location = "index.html";},3000);
+        </script>
+    </body>
+</html>

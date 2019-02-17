@@ -4,6 +4,8 @@ body{
 	font-family: 'Open Sans',sans-serif !important;
     background-color: #ee5d65;
     overflow:none;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 h1{
