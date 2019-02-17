@@ -4,7 +4,9 @@ var pages = {
     DATAENTRY: "data-entry",
     WOW: "wowPage",
     ENDPOS: "endPos",
-    QR:"qr"
+    QUALDATA:"qualitative",
+    QR:"qr",
+    
 };
 
 
@@ -57,7 +59,8 @@ function startMatch(id) {
                 matchNumber: -1,
                 scouter: -1,
                 teamNumber: -1
-            }
+            },
+            qual:[]
         };
         page = pages.DATAENTRY;
         data.start = id;
@@ -218,27 +221,27 @@ window.onload = function () {
 
     l3a.onclick = function(){
         data.endstate =6;
-        goToQRPage();
+        goToQualData();
     }
     l3.onclick = function(){
         data.endstate = 5;
-        goToQRPage();
+        goToQualData();
     }
     l2a.onclick = function(){
         data.endstate = 4;
-        goToQRPage();
+        goToQualData();
     }
     l2.onclick = function(){
         data.endstate = 3;
-        goToQRPage();
+        goToQualData();
     }
     l1.onclick = function(){
         data.endstate = 2;
-        goToQRPage();
+        goToQualData();
     }
     noClimb.onclick = function(){
         data.endstate = 1;
-        goToQRPage();
+        goToQualData();
     }
 
 
@@ -410,4 +413,106 @@ function goToQRPage(){
         
     });
     pager();
+}
+
+function goToQualData(){
+    page = pages.QUALDATA;
+    generateQualData();
+    pager();
+}
+
+function generateQualData(){
+    var formNode = document.getElementById("qualdata");
+    formNode.innerHTML = '';
+    inputData = questionGenerator;
+    //Increment through each entry and display it
+    for(var i = 0; i < inputData.questions.length; i++){
+            
+        /**
+         * The question being worked upon
+         */
+        var q = inputData.questions[i];
+        console.info(inputData.questions[i]);
+        
+        var questionNode = document.createElement("div");
+        questionNode.setAttribute("id", "psq-"+i);
+
+        if(q.type == "header"){ //Generate a header object
+            var h1 = document.createElement("h1");
+            var content = document.createTextNode(q.content);
+            h1.appendChild(content);
+            questionNode.appendChild(h1);
+        }
+        else if (q.type == "alert"){ //Generate an alert object
+            var alert = document.createElement("div")
+            alert.classList.add("alert");
+            alert.classList.add("alert-"+q.category);
+            alert.setAttribute("role","alert");
+            var text = document.createTextNode(q.content);
+            alert.appendChild(text);
+            questionNode.appendChild(alert);
+        }
+        else if(q.type == "submit"){
+            var submit = document.createElement("input");
+            submit.setAttribute("type","submit");
+            submit.setAttribute("value","submit");
+            submit.classList.add("pillButton");
+            submit.classList.add("orButton");
+            questionNode.appendChild(submit);
+        }
+        else{ //Any object that has a question number
+            var prompt = document.createTextNode(q.prompt);
+            questionNode.appendChild(prompt);
+            if(q.type == "option"){ //Add a dropdown
+                var selector = document.createElement("select");
+                selector.classList.add("form-control");
+                selector.classList.add("form-control-lg");
+                for(var x = 0; x < q.options.length; x++){
+                    var option = document.createElement("option");
+                    option.innerText = q.options[x];
+                    selector.appendChild(option);
+                }
+                selector.setAttribute("name","q"+i)
+
+                questionNode.appendChild(selector);
+                console.log(questionNode);
+                
+            }
+            else if(q.type == "num"){ //Add a number input
+                var input = document.createElement("input");
+                input.setAttribute("inputmode","numeric");
+                input.setAttribute("pattern","[0-9]*");
+                input.setAttribute("placeholder",q.hint);
+                input.setAttribute("name","q"+i)
+                input.classList.add("smallInput");
+                questionNode.appendChild(input);
+            }
+        }
+        
+        
+        formNode.appendChild(questionNode);
+        for(var a = 0; a < 2; a++){
+            var br = document.createElement("br");
+            formNode.appendChild(br);
+        }
+    }
+    
+}
+function commitQualData(){
+    processData();
+    goToQRPage();
+}
+function processData(){
+    var formChildren = document.getElementById("qualdata").childNodes;
+    for(var i = 0; i < formChildren.length; i++){
+        try {
+            data.qual.push({
+                "id":formChildren[i].childNodes[1].name,
+                "value":formChildren[i].childNodes[1].value
+            });
+        } catch (error) {
+            window.console.error(error);
+        }
+        
+    }
 }

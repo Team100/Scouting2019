@@ -3,6 +3,8 @@
 <head>
     <title>Team 100 Scouting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="fontawesome-pro-5.6.3-web/css/all.min.css" />
 
     <!--TODO: MIGRATE TO LOCAL UIkit FOR THE TABLETS-->
@@ -19,6 +21,7 @@
 
     <script src="anime.js"></script>
     <script src="qrcode.min.js"></script>
+    
 
 
 </head>
@@ -120,11 +123,14 @@
     <form id="qualdata">
         
     </form>
+    <button class="button orButton inner-100" id="commit-qual" onclick="commitQualData()">Commit</button>
+
 </div>
 <div id="qr">
     <div id="qrcode"></div>
     <button class="orButton largeButton inner-100 " id="qr-done">Done</button>
 </div>
+<script src="qualDataQuestionSchema.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
