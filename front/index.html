@@ -3,28 +3,32 @@
 <head>
     <title>Team 100 Scouting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="fontawesome-pro-5.6.3-web/css/all.min.css" />
 
     <!--TODO: MIGRATE TO LOCAL UIkit FOR THE TABLETS-->
 
     <!-- UIkit CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/css/uikit.min.css"/>
+    <link rel="stylesheet" href="./UIKit/css/uikit.min.css"/>
 
     <!-- UIkit JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.23/js/uikit-icons.min.js"></script>
+    <script src="./UIKit/js/uikit.min.js"></script>
+    <script src="./UIKit/js/uikit-icons.min.js"></script>
 
 
     <link rel="stylesheet" href="main.css">
 
     <script src="anime.js"></script>
     <script src="qrcode.min.js"></script>
+    
 
 
-    <script src="script.js"></script>
 </head>
 <body>
 <div id="loader" style="width: 0%">&nbsp;</div>
+	
+	
 <div id="login">
     <div style="height:30%"></div>
     <div class="inner-75 abs-center ds-large card">
@@ -44,6 +48,7 @@
     <div style="height:10%"></div>
     <div class="inner-75 abs-center ds-large card">
         <div class="margins">
+			<a onclick = "logout()">Log Out</a>
             <h2 class="uk-card-title">Pre Match</h2>
             <!-- TO DO Ensure that this input method works-->
             <input id="matchnum" class="uk-input uk-form-large" type="number" inputmode="numeric" pattern="[0-9]*"
@@ -57,12 +62,13 @@
             <br>
             <br>
         </div>
-        <button class="button orButton inner-100" id="matchsetup-start-2">Start Level 2</button>
-        <br />
+        <button class="button orButton inner-100" id="matchsetup-start-2" onclick="startMatch(2)">Start Level 2</button>
         
-        <button class="button bluButton inner-100" id="matchsetup-start-1">Start Level 1</button>
+        <button class="button bluButton inner-100" id="matchsetup-start-1" onclick="startMatch(1)">Start Level 1</button>
     </div>
 </div>
+	
+	
 <div id="data-entry">
     <div class="inner-100 abs-center ds-large card shadow">
         <div class="header">
@@ -104,6 +110,8 @@
         <button class="orButton largeButton baseButton" style="flex-grow: 1">CROSSLINE</button>
     </div>
 </div>
+	
+	
 <div id="endPos">
     <h1 class="centerText">END POS</h1>
     <button class="yeButton largeButton inner-100 entryRow" id="ep-l3">Level 3</button>
@@ -112,13 +120,25 @@
     <button class="grButton largeButton inner-100 entryRow" id="ep-l2a">Level 2 Assist</button>
     <button class="orButton largeButton inner-100 entryRow" id="ep-l1">Level 1</button>
     <button class="bluButton largeButton inner-100 entryRow" id="ep-none">None</button>
-
-
-
 </div>
+	
+	
+<div id="qualitative">
+    <h1>Qualitative Data</h1>
+    <form id="qualdata">
+        
+    </form>
+    <button class="button orButton inner-100" id="commit-qual" onclick="commitQualData()">Commit</button>
+</div>
+	
+	
 <div id="qr">
     <div id="qrcode"></div>
     <button class="orButton largeButton inner-100 " id="qr-done">Done</button>
 </div>
+	
+	
+<script src="qualDataQuestionSchema.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
