@@ -95,10 +95,10 @@ exports.ingress = functions.https.onRequest((request, response) => {
         } else if (!request.body.hasOwnProperty("data")) {
             response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON: must have 'data' field"}));
             return;
-        } else if (request.body.type === "match") if (!utils.validateJSON(request.body.data), MatchFields) {
+        } else if (request.body.type === "match") if (!utils.validateJSON(request.body.data, MatchFields)) {
             response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.body.type}'`}));
             return;
-        } else if (request.body.type === "pit") if (!utils.validateJSON(request.body.data), PitFields) {
+        } else if (request.body.type === "pit") if (!utils.validateJSON(request.body.data, PitFields)) {
             response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.body.type}'`}));
             return;
         } else {
@@ -113,25 +113,29 @@ exports.ingress = functions.https.onRequest((request, response) => {
                 return;
             }
 
-            let team = doc.data()[data.metadata.teamNumber];
+            let team = doc.data()[request.body.data.metadata.teamNumber];
 
-            team.matches.push(data);
-            
+            team.matches.push(request.body.data);
+
             let sumHR = 0, sumHS = 0, sumCR = 0, sumCS = 0;
             for (let match of team.matches) {
-                sumHR += match.hatchRocket.length;
-                sumHS += match.hatchShip.length;
-                sumCR += match.cargoRocket.length;
-                sumCS += match.cargoShip.length;
+                sumHR += match.HatchRocket.length;
+                sumHS += match.HatchShip.length;
+                sumCR += match.CargoRocket.length;
+                sumCS += match.CargoShip.length;
             }
-            team.scoring.hatchRocket = sumHR/team.matches.length;
-            team.scoring.hatchShip = sumHS/team.matches.length;
-            team.scoring.cargoRocket = sumCR/team.matches.length;
-            team.scoring.cargoShip = sumCS/team.matches.length;
+            team.scoring.HatchRocket = sumHR/team.matches.length;
+            team.scoring.HatchShip = sumHS/team.matches.length;
+            team.scoring.CargoRocket = sumCR/team.matches.length;
+            team.scoring.CargoShip = sumCS/team.matches.length;
 
             // TODO: add processing for lyingIndex, smartScore, & tba-rank
 
-            admin.firestore().collection("events").doc(EVENT).update({[data.metadata.teamNumber]: team}).then(() => {
+            // Fixes dynamic keys in javascript
+            let updates = {};
+            updates[request.body.data.metadata.teamNumber] = team;
+
+            admin.firestore().collection("events").doc(EVENT).update(updates).then(() => {
                 response.status(200).send(JSON.stringify({"status": "success"}))
                 return;
             }).catch(err => {
