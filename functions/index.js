@@ -32,37 +32,51 @@ const MatchFields =  {
             type: "number"
         }
     },
-    disable: {
+    Disable: {
         type: "boolean"
     },
-    brownout: {
+    Brownout: {
         type: "boolean"
     },
-    break: {
+    Break: {
         type: "boolean"
     },
-    crossline: {
+    CrossLine: {
         type: "boolean"
     },
-    endstate: {
+    EndState: {
         type: "number"
     },
-    metadata: {
+    Metadata: {
         type: "object",
         properties: {
-            matchNumber: {
+            MatchNumber: {
                 type: "string"
             },
-            scouter: {
+            Scouter: {
                 type: "string"
             },
-            teamNumber: {
+            TeamNumber: {
                 type: "string"
             }
         }
     },
-    start: {
+    Start: {
         type: "number"
+    },
+    Qual: {
+        type: "array",
+        contains: {
+            type: "object",
+            properties: {
+                id: {
+                    type: "string"
+                },
+                value: {
+                    type: "string"
+                }
+            }
+        }
     }
 };
 const PitFields = {};
@@ -76,9 +90,9 @@ Expected JSON format:
 */
 exports.ingress = functions.https.onRequest((request, response) => {
     try {
-        // Check if POST request
-        if (request.method !== "POST") {
-            response.status(405).send(JSON.stringify({"status": "error", "reason": "Method not supported"}));
+        // Check if GET request
+        if (request.method !== "GET") {
+            response.status(405).send(JSON.stringify({"status": "error", "reason": "Method not allowed"}));
             return;
         }
 
@@ -88,18 +102,30 @@ exports.ingress = functions.https.onRequest((request, response) => {
             return;
         }
 
+        // Validate query fields
+        if (!request.query.hasOwnProperty("type")) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid query parameters: must have 'type' field"}));
+            return;
+        } else if (!request.query.hasOwnProperty("data")) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid query parameters: must have 'data' field"}));
+            return;
+        }
+
+        // Check that data is JSON
+        let data;
+        try {
+            data = JSON.parse(request.query.data);
+        } catch (e) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON: field 'data' must be JSON string"}));
+            return;
+        }
+
         // Validate json data
-        if (!request.body.hasOwnProperty("type")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON: must have 'type' field"}));
+        if (request.query.type === "match") if (!utils.validateJSON(data, MatchFields)) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.query.type}'`}));
             return;
-        } else if (!request.body.hasOwnProperty("data")) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": "Invalid JSON: must have 'data' field"}));
-            return;
-        } else if (request.body.type === "match") if (!utils.validateJSON(request.body.data, MatchFields)) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.body.type}'`}));
-            return;
-        } else if (request.body.type === "pit") if (!utils.validateJSON(request.body.data, PitFields)) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.body.type}'`}));
+        } else if (request.query.type === "pit") if (!utils.validateJSON(data, PitFields)) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.query.type}'`}));
             return;
         } else {
             response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: unknown type '${request.body.type}'`}));
@@ -113,10 +139,11 @@ exports.ingress = functions.https.onRequest((request, response) => {
                 return;
             }
 
-            let team = doc.data()[request.body.data.metadata.teamNumber];
+            // Get team data & matches
+            let team = doc.data()[data.Metadata.TeamNumber];
+            team.matches.push(data);
 
-            team.matches.push(request.body.data);
-
+            // Calculate average scoring
             let sumHR = 0, sumHS = 0, sumCR = 0, sumCS = 0;
             for (let match of team.matches) {
                 sumHR += match.HatchRocket.length;
@@ -133,7 +160,7 @@ exports.ingress = functions.https.onRequest((request, response) => {
 
             // Fixes dynamic keys in javascript
             let updates = {};
-            updates[request.body.data.metadata.teamNumber] = team;
+            updates[data.Metadata.TeamNumber] = team;
 
             admin.firestore().collection("events").doc(EVENT).update(updates).then(() => {
                 response.status(200).send(JSON.stringify({"status": "success"}))
