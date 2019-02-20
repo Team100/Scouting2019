@@ -76,7 +76,7 @@ var ps = {
         },
         {
             "type": "option",
-            "prompt": "7. Exchange",
+            "prompt": "7. Driver loading station",
             "options": [
                 "No",
                 "Yes (unreliable)",
@@ -199,9 +199,6 @@ var ps = {
             "type": "num",
             "prompt": "18. How reliably can they score cargo?",
             "hint": "Enter a whole number to represent a percentage (/100)"
-        },
-        {
-            "type": "submit"
         }
 
     ]

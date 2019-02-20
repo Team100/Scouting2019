@@ -45,28 +45,29 @@ function startMatch(id) {
     
     if(document.getElementById("matchnum").value && document.getElementById("teamnum").value){
 	    data = {
+            Type:"match",
             HatchRocket: [],
             HatchShip: [],
             CargoRocket: [],
             CargoShip:[],
-
-            disable: false,
-            brownout: false,
-            break: false,
-            crossline: false,
-            endstate: -1,
-            metadata: {
-                matchNumber: -1,
-                scouter: -1,
-                teamNumber: -1
+            Start: -1,
+            Disable: false,
+            Brownout: false,
+            Break: false,
+            CrossLine: false,
+            EndState: -1,
+            Metadata: {
+                MatchNumber: -1,
+                Scouter: -1,
+                TeamNumber: -1
             },
-            qual:[]
+            Qual:[]
         };
         page = pages.DATAENTRY;
-        data.start = id;
-        data.metadata.scouter = scouter;
-        data.metadata.matchNumber = document.getElementById("matchnum").value;
-        data.metadata.teamNumber = document.getElementById("teamnum").value;
+        data.Start = id;
+        data.Metadata.Scouter = scouter;
+        data.Metadata.MatchNumber = document.getElementById("matchnum").value;
+        data.Metadata.TeamNumber = document.getElementById("teamnum").value;
         console.log(data)
         resetDataEntryPage();
 
@@ -179,33 +180,33 @@ window.onload = function () {
     crossline = (document.getElementById("base")).getElementsByClassName("orButton")[0];
 
     disable.onclick = function () {
-        data.disable = !data.disable;
+        data.Disable = !data.Disable;
         disable.classList.remove("yeButtons");
-        if (data.disable) {
+        if (data.Disable) {
             disable.classList.add("yeButtons");
         }
     };
 
     brownout.onclick = function () {
-        data.brownout = !data.brownout;
+        data.Brownout = !data.Brownout;
         brownout.classList.remove("bluButtons");
-        if (data.brownout) {
+        if (data.Brownout) {
             brownout.classList.add("bluButtons");
         }
     };
 
     breakb.onclick = function () {
-        data.break = !data.break;
+        data.Break = !data.Break;
         breakb.classList.remove("grButtons");
-        if (data.break) {
+        if (data.Break) {
             breakb.classList.add("grButtons");
         }
     };
 
     crossline.onclick = function () {
-        data.crossline = !data.crossline;
+        data.CrossLine = !data.CrossLine;
         crossline.classList.remove("orButtons");
-        if (data.crossline) {
+        if (data.CrossLine) {
             crossline.classList.add("orButtons");
         }
     };
@@ -220,27 +221,27 @@ window.onload = function () {
     var noClimb = document.getElementById("ep-none");
 
     l3a.onclick = function(){
-        data.endstate =6;
+        data.EndState =6;
         goToQualData();
     }
     l3.onclick = function(){
-        data.endstate = 5;
+        data.EndState = 5;
         goToQualData();
     }
     l2a.onclick = function(){
-        data.endstate = 4;
+        data.EndState = 4;
         goToQualData();
     }
     l2.onclick = function(){
-        data.endstate = 3;
+        data.EndState = 3;
         goToQualData();
     }
     l1.onclick = function(){
-        data.endstate = 2;
+        data.EndState = 2;
         goToQualData();
     }
     noClimb.onclick = function(){
-        data.endstate = 1;
+        data.EndState = 1;
         goToQualData();
     }
 
@@ -387,7 +388,7 @@ function updateCSCount(n) {
 
 function updateEndStatus(n){
     if(n >= -1){
-        data.endstate = n;
+        data.EndState = n;
     }
 }
 
@@ -405,7 +406,7 @@ function goToQRPage(){
     }
     var qrcode = new QRCode("qrcode", {
         
-        text: `https://us-central1-scouting-2019-team-100.cloudfunctions.net/ingress?data='${JSON.stringify(data)}'`,
+        text: `https://us-central1-scouting-2019-team-100.cloudfunctions.net/ingress?type="match"&data=${JSON.stringify(data)}`,
         width: widthToSet,
         height: widthToSet,
         colorDark : "#000000",
@@ -507,7 +508,7 @@ function processData(){
     var formChildren = document.getElementById("qualdata").childNodes;
     for(var i = 0; i < formChildren.length; i++){
         try {
-            data.qual.push({
+            data.Qual.push({
                 "id":formChildren[i].childNodes[1].name,
                 "value":formChildren[i].childNodes[1].value
             });

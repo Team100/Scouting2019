@@ -11,6 +11,7 @@ var pageParams = {
 };
 
 var jsonDataURL = "https://s3-us-west-2.amazonaws.com/frc100-scouting-asset/pitscout.json";
+var data;
 /**
  * Gets the json data from the file
  * @param {*} url 
@@ -52,18 +53,23 @@ function refreshPage(){
         tnLocations[i].innerText = pageParams.team;
     }
 
-
+    document.getElementById("form").onsubmit = processData
+    data = {
+        "type":"pit",
+        
+    };
+    document.getElementById("data_commit").onclick = processData;
     generatePitScout();
+
 
 }
 
 function generatePitScout() {
-    var formNode = document.createElement("div"); //the div that the form is in
-    formNode.id = "ps-data";
-    document.getElementById("form").appendChild(formNode);
+    var formNode = document.getElementById("form");
     //document.getElementById("debug").innerText = `SRC: ${jsonDataURL} \n`
     var data = ps;
     //Increment through each entry and display it
+    var inc = 0;
     for (var i = 0; i < data.questions.length; i++) {
 
         /**
@@ -73,9 +79,9 @@ function generatePitScout() {
         console.info(data.questions[i]);
 
         var questionNode = document.createElement("div");
-        questionNode.setAttribute("id", "psq-" + i);
 
         if (q.type == "header") { //Generate a header object
+            questionNode.setAttribute('id',"head-"+i);
             var h1 = document.createElement("h1");
             var content = document.createTextNode(q.content);
             h1.appendChild(content);
@@ -96,6 +102,8 @@ function generatePitScout() {
             submit.classList.add("orButton");
             questionNode.appendChild(submit);
         } else { //Any object that has a question number
+            questionNode.setAttribute("id", "psq-" + inc);
+
             var prompt = document.createTextNode(q.prompt);
             questionNode.appendChild(prompt);
             if (q.type == "option") { //Add a dropdown
@@ -107,7 +115,7 @@ function generatePitScout() {
                     option.innerText = q.options[x];
                     selector.appendChild(option);
                 }
-                selector.setAttribute("name", "q" + i);
+                selector.setAttribute("name", "q" + inc);
 
                 questionNode.appendChild(selector);
                 console.log(questionNode);
@@ -117,10 +125,11 @@ function generatePitScout() {
                 input.setAttribute("inputmode", "numeric");
                 input.setAttribute("pattern", "[0-9]*");
                 input.setAttribute("placeholder", q.hint);
-                input.setAttribute("name", "q" + i);
+                input.setAttribute("name", "q" + inc);
                 input.classList.add("smallInput");
                 questionNode.appendChild(input);
             }
+            inc += 1;
         }
 
 
@@ -131,6 +140,40 @@ function generatePitScout() {
         }
     }
 
+}
+
+function processData(){
+    var formChildren = document.getElementById("form");
+    console.error("In Process Data")
+    console.info(formChildren.children.length);
+    console.info(formChildren);
+    for(var i = 0; i < formChildren.children.length; i++){
+        try{
+        console.info(i);
+        if(formChildren[i].name != "" && formChildren[i].name != null){
+            try {
+                data[formChildren[i].name] = formChildren[i].value;
+                
+            } catch (error) {
+                window.console.error(error);
+            }
+        }
+        else if(formChildren[i][0].name != ""){
+            try {
+                data[formChildren[i].name] = formChildren[i].value;
+                
+            } catch (error) {
+                window.console.error(error);
+            }
+        }
+    }catch(error){
+        console.error(error);
+    }
+
+        
+    }
+
+    window.open(`https://us-central1-scouting-2019-team-100.cloudfunctions.net/ingress?type="pit"&data=${JSON.stringify(data)}`,'_blank');
 }
 function loadPage(){
     refreshPage();

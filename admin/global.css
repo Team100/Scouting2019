@@ -24,7 +24,13 @@ div{
 	text-align: center;
 	display: block;
 }
-
+.pillButton button{
+	width:100%;
+	padding-left: auto;
+	padding-right: auto;
+	text-align: center;
+	display: block;
+}
 code{
 	color: #f17171
 }
