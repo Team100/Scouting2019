@@ -28,14 +28,22 @@ function goToMatchSetUp() {
     }
     
 }
-
+function startLevel2(){
+    startMatch(2);
+}
+function startLevel1(){
+    startMatch(1);
+}
 function registerButtonTaps(){
 	/*
 	 * I am unsure if Cordova will handle the inline onclicks properly.
 	 * I have not tested it, but we will need to replace all of them with
 	 * this format if it doesn't support inline onclick
 	 */
-	document.getElementById("login-login").addEventListener('click',goToMatchSetUp);
+    document.getElementById("login-login").addEventListener('click',goToMatchSetUp);
+    document.getElementById("matchsetup-start-2").addEventListener('click',startLevel2);
+    document.getElementById("matchsetup-start-1").addEventListener('click',startLevel1);
+
 	console.log("Buttons registered");
 }
 /**
