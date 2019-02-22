@@ -37,6 +37,28 @@ var questionGenerator = {
                 "Far above average",
                 "Powerhouse Team"
             ]
+        },
+        {
+            "type":"option",
+            "prompt":"Robot status",
+            "options":[
+                "Active in match",
+                "At field but not moving",
+                "Not at field",
+                "Event DQ"
+            ]
+        },
+        {
+            "type":"option",
+            "prompt":"Disqualifiers",
+            "options":[
+                "No Issues",
+                "Foul",
+                "Tech Foul",
+                "Yellow Card",
+                "Red Card",
+                "Event Disqualified"
+            ]
         }
     ]
 }
