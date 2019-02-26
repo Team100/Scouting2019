@@ -29,10 +29,16 @@ function goToMatchSetUp() {
     
 }
 function startLevel2(){
-    startMatch(2);
+    if(verifyMatchStart()){startMatch(2);}
 }
 function startLevel1(){
-    startMatch(1);
+    if(verifyMatchStart()){startMatch(1);}
+}
+function verifyMatchStart(){
+    if(document.getElementById("matchnum").value != null && document.getElementById("matchnum").value != "" && document.getElementById("teamnum").value != null && document.getElementById("teamnum").value != ""){
+        return true;
+    }
+    return false;
 }
 function registerButtonTaps(){
 	/*
@@ -282,7 +288,7 @@ function countDown(a) {
         txt = txt.length < 4 ? "&nbsp;" + txt : txt;
     } else if (mode === 1) {
         let modetxt = document.getElementById("mode");
-        modetxt.innerText = "";
+        modetxt.innerText = "AUTO Grace Period: ";
         if (txt === "3") timer.style.color = "#1fdd10";
         if (txt === "2") timer.style.color = "#f6a314";
         if (txt === "1") timer.style.color = "#dd262c";
@@ -510,20 +516,39 @@ function generateQualData(){
 }
 function commitQualData(){
     processData();
-    goToQRPage();
+
 }
 function processData(){
     var formChildren = document.getElementById("qualdata").childNodes;
+    var ok = true;
     for(var i = 0; i < formChildren.length; i++){
-        try {
-            data.Qual.push({
-                "id":formChildren[i].childNodes[1].name,
-                "value":formChildren[i].childNodes[1].value
-            });
-        } catch (error) {
-            window.console.error(error);
+
+        try{
+            if(formChildren[i].childNodes[1].value == "---"){
+            ok = false;
+            console.log("ERROR WITH VALUE");
+        }}catch{
+            console.log("ERROR READING");
         }
-        
+
+    }
+    if(ok) {
+        for (var i = 0; i < formChildren.length; i++) {
+            try {
+                data.Qual.push({
+                    "id": formChildren[i].childNodes[1].name,
+                    "value": formChildren[i].childNodes[1].value
+                });
+            } catch (error) {
+                window.console.error(error);
+            }
+
+        }
+        goToQRPage();
+    }
+    else{
+        alert("Qualitative data point not valid");
+
     }
 }
 function logout(){

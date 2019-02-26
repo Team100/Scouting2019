@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e317764a-2df8-4f7a-b55d-a35f5531d255" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/team/pitscoutConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YWRtaW4.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YWRtaW4.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/team/pitscout.html" beforeDir="false" afterPath="$PROJECT_DIR$/admin/team/pitscout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/team/pitscout.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/team/pitscout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/qualDataQuestionSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/qualDataQuestionSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/script.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,7 +20,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/team/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="264">
               <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
@@ -31,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/team/pitscout.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="23" lean-forward="true" selection-end-line="208" />
+            <state relative-caret-position="330">
+              <caret line="15" column="23" selection-end-line="208" />
             </state>
           </provider>
         </entry>
@@ -40,17 +38,58 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/team/pitscoutConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3519">
-              <caret line="207" column="1" lean-forward="true" selection-start-line="207" selection-start-column="1" selection-end-line="207" selection-end-column="1" />
+            <state relative-caret-position="4510">
+              <caret line="205" selection-start-line="205" selection-end-line="205" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/team/pitscout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1139">
+              <caret line="104" selection-start-line="95" selection-start-column="44" selection-end-line="104" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/team/pitscout.js">
+        <entry file="file://$PROJECT_DIR$/front/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="65" column="6" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
+            <state relative-caret-position="599">
+              <caret line="291" column="55" lean-forward="true" selection-start-line="291" selection-start-column="55" selection-end-line="291" selection-end-column="55" />
+              <folding>
+                <element signature="e#8944#9170#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1191">
+              <caret line="58" column="30" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="30" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#div#0;n#div#2;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#div#0;n#div#3;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/qualDataQuestionSchema.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1276">
+              <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -58,7 +97,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/team/pitscout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-93">
+            <state relative-caret-position="176">
               <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
             </state>
           </provider>
@@ -68,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/admin/global.css">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+              <caret column="23" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -86,6 +125,8 @@
     <findStrings>
       <find>data</find>
       <find>sha</find>
+      <find>endState</find>
+      <find>endpo</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -99,21 +140,22 @@
       <list>
         <option value="$PROJECT_DIR$/front/anime.js" />
         <option value="$PROJECT_DIR$/front/main.css" />
-        <option value="$PROJECT_DIR$/front/script.js" />
         <option value="$PROJECT_DIR$/front/index.html" />
         <option value="$PROJECT_DIR$/admin/team/profile.html" />
         <option value="$PROJECT_DIR$/admin/global.css" />
         <option value="$PROJECT_DIR$/admin/team/pitscoutConfig.js" />
         <option value="$PROJECT_DIR$/admin/team/pitscout.html" />
         <option value="$PROJECT_DIR$/admin/team/pitscout.js" />
+        <option value="$PROJECT_DIR$/front/qualDataQuestionSchema.js" />
+        <option value="$PROJECT_DIR$/front/script.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-3" />
-    <option name="y" value="18" />
-    <option name="width" value="1368" />
-    <option name="height" value="690" />
+    <option name="x" value="1080" />
+    <option name="y" value="30" />
+    <option name="width" value="3840" />
+    <option name="height" value="2094" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -185,17 +227,18 @@
       <workItem from="1543948058405" duration="1480000" />
       <workItem from="1544053664057" duration="832000" />
       <workItem from="1550422793302" duration="2727000" />
+      <workItem from="1551147264351" duration="1460000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25018000" />
+    <option name="totallyTimeSpent" value="26478000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1080" y="30" width="3840" height="2094" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15331928" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09482303" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -255,21 +298,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/script.js">
+    <entry file="file://$PROJECT_DIR$/admin/team/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!block;n#countDown#0" />
-            <element signature="n#!!block;n#startTele#0" />
-          </folding>
+        <state relative-caret-position="264">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/team/pitscout.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="23" selection-end-line="208" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/team/pitscoutConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4510">
+          <caret line="205" selection-start-line="205" selection-end-line="205" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/team/pitscout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/qualDataQuestionSchema.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1276">
+          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+        <state relative-caret-position="1191">
+          <caret line="58" column="30" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -284,45 +358,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/team/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/team/pitscout.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="23" lean-forward="true" selection-end-line="208" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/global.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/team/pitscoutConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3519">
-          <caret line="207" column="1" lean-forward="true" selection-start-line="207" selection-start-column="1" selection-end-line="207" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/team/pitscout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-93">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/team/pitscout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="65" column="6" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
+        <state relative-caret-position="1139">
+          <caret line="104" selection-start-line="95" selection-start-column="44" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="291" column="55" lean-forward="true" selection-start-line="291" selection-start-column="55" selection-end-line="291" selection-end-column="55" />
+          <folding>
+            <element signature="e#8944#9170#0" />
+          </folding>
         </state>
       </provider>
     </entry>
