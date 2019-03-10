@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e317764a-2df8-4f7a-b55d-a35f5531d255" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/qualDataQuestionSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/qualDataQuestionSchema.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/script.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -47,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/team/pitscout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1139">
+            <state relative-caret-position="2288">
               <caret line="104" selection-start-line="95" selection-start-column="44" selection-end-line="104" />
             </state>
           </provider>
@@ -56,11 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="291" column="55" lean-forward="true" selection-start-line="291" selection-start-column="55" selection-end-line="291" selection-end-column="55" />
-              <folding>
-                <element signature="e#8944#9170#0" />
-              </folding>
+            <state relative-caret-position="902">
+              <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -68,7 +64,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1191">
+            <state relative-caret-position="1276">
               <caret line="58" column="30" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -152,10 +148,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1080" />
+    <option name="x" value="2871" />
     <option name="y" value="30" />
-    <option name="width" value="3840" />
-    <option name="height" value="2094" />
+    <option name="width" value="720" />
+    <option name="height" value="1280" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -227,18 +223,18 @@
       <workItem from="1543948058405" duration="1480000" />
       <workItem from="1544053664057" duration="832000" />
       <workItem from="1550422793302" duration="2727000" />
-      <workItem from="1551147264351" duration="1460000" />
+      <workItem from="1551147264351" duration="2139000" />
+      <workItem from="1552242079593" duration="157000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26478000" />
+    <option name="totallyTimeSpent" value="27314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1080" y="30" width="3840" height="2094" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09482303" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09573908" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -250,7 +246,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32793018" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3278427" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -319,30 +315,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/team/pitscout.html">
+    <entry file="file://$PROJECT_DIR$/admin/team/pitscout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/global.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/qualDataQuestionSchema.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1276">
-          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+        <state relative-caret-position="2288">
+          <caret line="104" selection-start-line="95" selection-start-column="44" selection-end-line="104" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1191">
+        <state relative-caret-position="1276">
           <caret line="58" column="30" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -358,20 +340,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/team/pitscout.js">
+    <entry file="file://$PROJECT_DIR$/front/qualDataQuestionSchema.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="104" selection-start-line="95" selection-start-column="44" selection-end-line="104" />
+        <state relative-caret-position="1276">
+          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/team/pitscout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="291" column="55" lean-forward="true" selection-start-line="291" selection-start-column="55" selection-end-line="291" selection-end-column="55" />
-          <folding>
-            <element signature="e#8944#9170#0" />
-          </folding>
+        <state relative-caret-position="902">
+          <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
         </state>
       </provider>
     </entry>

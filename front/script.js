@@ -56,7 +56,7 @@ function registerButtonTaps(){
  * The code to run at the start of a match. Instantiates a timer
  **/
 function startMatch(id) {
-    
+    alert("Press OK when the match starts");
     if(document.getElementById("matchnum").value && document.getElementById("teamnum").value){
 	    data = {
             Type:"match",
