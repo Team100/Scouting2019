@@ -3,6 +3,8 @@
  * 
  * Calls loadPage()
  */
+
+var GLOBAL_FOUND = true;
 window.onload = function(){
     var loc = location.href.split("/").slice(-1);
     
@@ -29,6 +31,9 @@ window.onload = function(){
         }
     }
     if(typeof loadPage === "function"){
+        console.log("About to load page");
         loadPage();
+    }else{
+        console.error("loadPage not found");
     }
 }

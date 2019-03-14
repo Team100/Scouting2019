@@ -4,6 +4,22 @@
  * Will Vile's swiper library. It has been cusomized for the purposes of Team 100
  */
 
+var EVENT_ID = 'davis'; //TODO Update EventID
+
+var teams = [];
+// Initialize Firebase
+
+var addedTeams = [];
+var config = {
+    apiKey: "AIzaSyDb93QE2tpS5ROHIBfbMh_re5Ogg-nsCzA",
+    authDomain: "scouting-2019-team-100.firebaseapp.com",
+    databaseURL: "https://scouting-2019-team-100.firebaseio.com",
+    projectId: "scouting-2019-team-100",
+    storageBucket: "scouting-2019-team-100.appspot.com",
+    messagingSenderId: "922379069595"
+};
+firebase.initializeApp(config);
+var db = firebase.firestore();
 
 /**
  * A promise to load DOM elements for the various teams
@@ -11,28 +27,10 @@
  *
  * @return true completion status
  */
+
+var currIndex = 0;
 var loadDom = new Promise(function(resolve, reject) {
-    
-    var pickHolder = document.getElementById("swiper-stack");
-    var team = {
-        "num": 123,
-        "score": 12345
-    };
-    for(var i = 0; i < 10; i ++){
-        var teamCard = document.createElement("li");
-        teamCard.setAttribute("data-swipe-right", "true");
-        teamCard.setAttribute("data-swipe-left","true");
-        var teamNum = document.createElement("h1");
-        var teamNumText = document.createTextNode(team.num);
-	var teamScore = document.createElement("h2");
-	var teamScoreText = document.createTextNode(team.score);
-	teamScore.appendChild(teamScoreText);
-        teamNum.appendChild(teamNumText);
-        teamCard.appendChild(teamNum);
-	teamCard.appendChild(teamScore);
-        pickHolder.appendChild(teamCard);
-    }
-    
+
     resolve(true);
   });
 /**
@@ -41,25 +39,90 @@ var loadDom = new Promise(function(resolve, reject) {
  */
 function loadPage(){
     console.info("Started");
-    
-    loadDom.then(function(){
-        window.console.log("Promise fulfilled");
-	loadSwiper();
 
+    db.collection("events").doc(`${EVENT_ID}`).collection('picklist').doc('global').get().then(function(doc) {
+        // Document was found in the cache. If no cached document exists,
+        // an error will be returned to the 'catch' block below.
+        var docData = doc.data();
+        console.info(doc.data());
+
+        if(docData.currentIndex){
+            this.currIndex = docData.currentIndex;
+        }
+        else{
+            this.currIndex = 0;
+
+        }
+        promiseLevel1();
+
+
+    }).catch(function(error) {
+        console.log("Error getting cached document:", error);
+        this.currIndex = 0;
+        promiseLevel1();
     });
 
+
+
     
     
+}
+function promiseLevel1(){
+    db.collection("events").doc(`${EVENT_ID}`).get().then(function(doc) {
+        teams = [];
+        var objectKeys = Object.keys(doc.data());
+        for(var i = 0; i < objectKeys.length; i++){
+            teams.push(objectKeys[i]);
+
+        }
+        console.log(teams);
+        var cardStack = document.getElementById('swiper-stack');
+        cardStack.innerHTML = "";
+
+        for(var i = 0; i < teams.length; i++){
+            var li = document.createElement('li');
+            li.setAttribute('data-swipe-right', "true");
+            li.setAttribute('data-swipe-left', "true");
+            var header = document.createElement('h1');
+            var text = document.createTextNode(teams[i]);
+            header.appendChild(text);
+            li.appendChild(header);
+            cardStack.appendChild(li);
+            console.log(li);
+        }
+        console.info('began promise');
+
+        loadDOMContent();
+    });
+}
+
+function loadDOMContent(){
+    console.log("Starting loadDOMContent");
+    var pickHolder = document.getElementById("swiper-stack");
+
+    loadSwiper();
+
 }
 /**
  * The code to load the swiping library
  */
 function loadSwiper(){
+    addedTeams = [];
     var simpleSwipe = $('.stack-swipe').StackSwipe();
     
     simpleSwipe.on('swipeSuccess', function(event, card, direction) {
         console.log($(card));
         console.log(direction + ' swipe SUCCESS!');
+        if(direction == 'left'){
+            // Rejected
+        }
+        else if(direction == 'right'){
+            addedTeams.push(teams[currIndex]);
+
+        }
+        currIndex += 1;
+
+
     });
     
     simpleSwipe.on('swipeUnavailable', function(event, direction) {

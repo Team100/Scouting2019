@@ -5,9 +5,21 @@
 		This page is the team profile. It is intended for the driveteam to get data on various teams
 	-->
 	<head>
+		<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyDb93QE2tpS5ROHIBfbMh_re5Ogg-nsCzA",
+				authDomain: "scouting-2019-team-100.firebaseapp.com",
+				databaseURL: "https://scouting-2019-team-100.firebaseio.com",
+				projectId: "scouting-2019-team-100",
+				storageBucket: "scouting-2019-team-100.appspot.com",
+				messagingSenderId: "922379069595"
+			};
+			firebase.initializeApp(config);
+		</script>
 		<script src="../lib/plotly.js"></script>
-		<script src="profile.js"></script>
-		<script src="../global.js"></script>
+
 		<link rel="stylesheet" type="text/css" href="profile.css">
 		<link rel="stylesheet" type="text/css" href="../global.css">
 		<link rel="stylesheet" href="../lib/fontawesome-pro-5.6.3-web/css/all.css">
@@ -27,11 +39,14 @@
 		<div id="smartscore_container" class="bigNum">
 			<h1 id="smartscore" class="data-team-smartscore"></h1>
 			<h3>Smartscore</h3>
+			<h1 id="smartscore_unweight" class="data-team-smartscore-unweighted"></h1>
+			<h3>Unweighted Smartscore</h3>
 		</div>
 		<hr>
 		<div id="tba_rank_container" class="bigNum">
 				<h1 id="tba_rank" class="data-team-tba-rank"></h1>
 				<h3>TBA Ranking</h3>
+
 			</div>
 			<hr>
 		<div id="scoring_container">
@@ -39,13 +54,17 @@
 			<div id="scoring"></div>
 		</div>
 		<hr>
+		<div id="team_reliability_index" class='bigNum'>
+			<h1 id="team_reliability" class="data-team-reliability"></h1>
+			<h3>Team Reliability</h3>
+		</div>
 		<h1>Raw Data</h1>
-		<code>
-			{
-				"id":<span class="data-team-num"></span>
-			}
+		<code id="rawData">
+
 		</code>
-		
-		
+
+
+		<script src="profile.js"></script>
+		<script src="../global.js"></script>
 	</body>
 </html>
