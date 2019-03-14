@@ -9,6 +9,7 @@ var questionGenerator = {
             "type":"option",
             "prompt":"How reliable was their robot?",
             "options":[
+                "---",
                 "Fatal Issue",
                 "Major Issue",
                 "Minor Issue",
@@ -19,6 +20,7 @@ var questionGenerator = {
             "type":"option",
             "prompt":"How good were they at placing scoring objects?",
             "options":[
+                "---",
                 "Very Bad",
                 "Moderately Bad",
                 "Okay",
@@ -30,6 +32,7 @@ var questionGenerator = {
             "type":"option",
             "prompt":"How was their Sandstorm performance?",
             "options":[
+                "---",
                 "Far below average",
                 "Below average",
                 "Average",
@@ -42,6 +45,7 @@ var questionGenerator = {
             "type":"option",
             "prompt":"Robot status",
             "options":[
+                "---",
                 "Active in match",
                 "At field but not moving",
                 "Not at field",
@@ -52,6 +56,7 @@ var questionGenerator = {
             "type":"option",
             "prompt":"Disqualifiers",
             "options":[
+                "---",
                 "No Issues",
                 "Foul",
                 "Tech Foul",

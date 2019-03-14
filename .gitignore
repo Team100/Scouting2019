@@ -1,6 +1,6 @@
 # IntelliJ Idea
 .idea
-
+/.idea/
 # VIM SWAPS
 *.swp
 
