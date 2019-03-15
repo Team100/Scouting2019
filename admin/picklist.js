@@ -20,6 +20,8 @@ var config = {
 };
 firebase.initializeApp(config);
 var db = firebase.firestore();
+var currIndex = 0;
+
 
 /**
  * A promise to load DOM elements for the various teams
@@ -28,7 +30,6 @@ var db = firebase.firestore();
  * @return true completion status
  */
 
-var currIndex = 0;
 var loadDom = new Promise(function(resolve, reject) {
 
     resolve(true);

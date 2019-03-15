@@ -72,6 +72,16 @@ select{
 	text-align: center;
 }
 
+.fab{
+	width: 20vw;
+	height: 20vw;
+	position:absolute;
+	border-radius: 10vw;
+	bottom:0;
+	left:0;
+	background-color: #ff8600;
+}
+
 .bigNum h1{
 	font-size: 48px;
 	font-weight: 400;
