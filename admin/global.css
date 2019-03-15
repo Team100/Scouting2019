@@ -75,11 +75,34 @@ select{
 .fab{
 	width: 20vw;
 	height: 20vw;
-	position:absolute;
+	position:fixed;
 	border-radius: 10vw;
-	bottom:0;
-	left:0;
-	background-color: #ff8600;
+	
+	background-color: #ff7171;
+	z-index: 999;
+	border: none;
+	box-shadow: 0 2vw 5vw 0px #000;
+	
+}
+.fab-bottom-left{
+	bottom:5vw;
+	left:5vw;
+}
+.fab-bottom-right{
+	bottom: 5vw;
+	right: 5vw;
+	
+}
+.bkg-light-blue{
+	background-color: #7ea9ff;
+}
+.fab .content{
+	left: 50%;
+	top: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	color: #fff;
+	font-size: 8vw;
 }
 
 .bigNum h1{
@@ -223,3 +246,9 @@ select{
 }
 
 
+.team-not-available{
+	color: #ff7171;
+	text-decoration:line-through;
+	font-weight: bold;
+	font-size: italic; 
+}

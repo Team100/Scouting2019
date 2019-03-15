@@ -4,7 +4,7 @@
  * Will Vile's swiper library. It has been cusomized for the purposes of Team 100
  */
 
-var EVENT_ID = 'davis'; //TODO Update EventID
+var EVENT_ID = 'san-francisco'; //TODO Update EventID
 
 var teams = [];
 // Initialize Firebase
