@@ -420,7 +420,7 @@ function goToQRPage(){
     }
     var qrcode = new QRCode("qrcode", {
         
-        text: `https://us-central1-scouting-2019-team-100.cloudfunctions.net/ingress?type="match"&data=${JSON.stringify(data)}`,
+        text: `https://us-central1-scouting-2019-team-100.cloudfunctions.net/ingress?type=match&data=${JSON.stringify(data)}`,
         width: widthToSet,
         height: widthToSet,
         colorDark : "#000000",
