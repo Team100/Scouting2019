@@ -6,7 +6,7 @@ admin.initializeApp(functions.config().firebase);
 admin.firestore().settings({timestampsInSnapshots: true});
 
 // TODO: get config from database
-const EVENT = "davis";
+const EVENT = "2019casf";
 const MatchFields =  {
     HatchRocket: {
         type: "array",
@@ -79,7 +79,22 @@ const MatchFields =  {
         }
     }
 };
-const PitFields = {};
+const PitFields = {
+    pit: {
+        type: "array",
+        contains: {
+            type: "object",
+            properties: {
+                id: {
+                    type: "string"
+                },
+                value: {
+                    type: "string"
+                }
+            }
+        }
+    }
+};
 
 /*
 Expected JSON format:
@@ -93,12 +108,6 @@ exports.ingress = functions.https.onRequest((request, response) => {
         // Check if GET request
         if (request.method !== "GET") {
             response.status(405).send(JSON.stringify({"status": "error", "reason": "Method not allowed"}));
-            return;
-        }
-
-        // Validate that data is json
-        if (typeof request.body !== "object") {
-            response.status(400).send(JSON.stringify({"status": "error","reason": "Invalid request"}));
             return;
         }
 
@@ -139,24 +148,30 @@ exports.ingress = functions.https.onRequest((request, response) => {
                 return;
             }
 
-            // Get team data & matches
-            let team = doc.data()[data.Metadata.TeamNumber];
-            team.matches.push(data);
+            let team;
+            if (request.query.type == "match") {
+                // Get team data & matches
+                team = doc.data()[data.Metadata.TeamNumber];
+                team.matches.push(data);
 
-            // Calculate average scoring
-            let sumHR = 0, sumHS = 0, sumCR = 0, sumCS = 0;
-            for (let match of team.matches) {
-                sumHR += match.HatchRocket.length;
-                sumHS += match.HatchShip.length;
-                sumCR += match.CargoRocket.length;
-                sumCS += match.CargoShip.length;
+                // Calculate average scoring
+                let sumHR = 0, sumHS = 0, sumCR = 0, sumCS = 0;
+                for (let match of team.matches) {
+                    sumHR += match.HatchRocket.length;
+                    sumHS += match.HatchShip.length;
+                    sumCR += match.CargoRocket.length;
+                    sumCS += match.CargoShip.length;
+                }
+                team.scoring.HatchRocket = sumHR/team.matches.length;
+                team.scoring.HatchShip = sumHS/team.matches.length;
+                team.scoring.CargoRocket = sumCR/team.matches.length;
+                team.scoring.CargoShip = sumCS/team.matches.length;
+
+                
+            } else {
+                // Get team data
+                team = doc.data()[data.pit[0].value];
             }
-            team.scoring.HatchRocket = sumHR/team.matches.length;
-            team.scoring.HatchShip = sumHS/team.matches.length;
-            team.scoring.CargoRocket = sumCR/team.matches.length;
-            team.scoring.CargoShip = sumCS/team.matches.length;
-
-            // TODO: add processing for lyingIndex, smartScore, & tba-rank
 
             // Fixes dynamic keys in javascript
             let updates = {};
@@ -208,6 +223,74 @@ exports.tba = functions.https.onRequest((request, response) => {
         return;
     }).catch(err => {
         // Return generic error and log actual
+        console.error("Error getting current event document:", err);
+        response.status(500).send(JSON.stringify({"status": "error", "reason": "Could not retrieve data from the database"}));
+        return;
+    });
+});
+
+exports.batch_calc = functions.https.onRequest((request, response) => {
+    // Check request type
+    if (request.method !== "GET") {
+        response.status(405).send(JSON.stringify({"status": "error", "reason": "Method not allowed"}));
+        return;
+    }
+
+    admin.firestore().collection("events").doc(EVENT).get().then(doc => {
+        if (!doc.exists) {
+            response.status(400).send(JSON.stringify({"status": "error", "reason": "Could not retrieve current events from database"}));
+            return;
+        }
+
+        let teams = doc.data();
+
+        for (let team in teams) {
+            try {
+                let ss = 0;
+
+                if (!teams[team].scoring.hasOwnProperty("HatchRocket")) continue;
+
+                ss += (teams[team].scoring.HatchRocket/4) * 30;
+                ss += (teams[team].scoring.HatchShip/4) * 30;
+                ss += (teams[team].scoring.CargoRocket/4) * 30;
+                ss += (teams[team].scoring.CargoShip/4) * 30;
+
+                let count_broken = 0;
+                let count_brownout = 0;
+                let count_disable = 0;
+                let endstate = 0;
+                let start = 0;
+                for (let match in teams[team].matches) {
+                    if (teams[team].matches[match].Break) count_broken++;
+                    if (teams[team].matches[match].Brownout) count_brownout++;
+                    if (teams[team].matches[match].Disable) count_disable++;
+                    endstate += teams[team].matches[match].EndState;
+                    start += teams[team].matches[match].Start;
+                }
+
+                ss += (endstate/(6 * teams[team].matches.length)) * 20;
+                ss += (start/(2 * teams[team].matches.length)) * 20;
+                ss -= count_broken/teams[team].matches.length * 10;
+                ss -= count_disable/teams[team].matches.length * 10;
+                ss -= count_brownout/teams[team].matches.length * 10;
+
+                teams[team].smartScore.weighted = Math.ceil(ss/(
+                    (6*teams[team].matches.length) + (2*teams[team].matches.length) + (8*30)
+                ) * 100);
+            } catch (e) {console.error(e)}
+        }
+
+        admin.firestore().collection("events").doc(EVENT).update(teams).then(() => {
+            response.status(200).send(JSON.stringify({"status": "success"}));
+            return;
+        }).catch(err => {
+            // Return generic and log actual
+            console.error("Error getting current event document:", err);
+            response.status(500).send(JSON.stringify({"status": "error", "reason": "Could not retrieve data from the database"}));
+            return;
+        })
+    }).catch(err => {
+        // Return generic error & log actual
         console.error("Error getting current event document:", err);
         response.status(500).send(JSON.stringify({"status": "error", "reason": "Could not retrieve data from the database"}));
         return;
