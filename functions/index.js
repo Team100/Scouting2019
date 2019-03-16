@@ -5,7 +5,7 @@ admin.initializeApp(functions.config().firebase);
 admin.firestore().settings({timestampsInSnapshots: true});
 
 // TODO: get config from database
-const EVENT = "davis";
+const EVENT = "2019casf";
 
 // TODO: update for 2019 game
 exports.ingress = functions.https.onRequest((request, response) => {
