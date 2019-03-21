@@ -130,16 +130,20 @@ exports.ingress = functions.https.onRequest((request, response) => {
         }
 
         // Validate json data
-        if (request.query.type === "match") if (!utils.validateJSON(data, MatchFields)) {
+        /*if (request.query.type === "match") {
+            if (!utils.validateJSON(data, MatchFields)) {
+                response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.query.type}'`}));
+                return;
+            }
+        } else if (request.query.type === "pit") if (!utils.validateJSON(data, PitFields)) {
             response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.query.type}'`}));
             return;
-        /*} else if (request.query.type === "pit") if (!utils.validateJSON(data, PitFields)) {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: data does not match format for type '${request.query.type}'`}));
-            return;*/
         } else {
-            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: unknown type '${request.body.type}'`}));
+            console.log(request.query);
+            console.log(request.query.type);
+            response.status(400).send(JSON.stringify({"status": "error", "reason": `Invalid JSON: unknown type '${request.query.type}'`}));
             return;
-        }
+        }*/
 
         // Update current value in event
         admin.firestore().collection("events").doc(EVENT).get().then(doc => {
