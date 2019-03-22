@@ -6,6 +6,7 @@
 
 var EVENT_ID = '2019cada'; //TODO Update EventID
 
+
 var teams = [];
 // Initialize Firebase
 
