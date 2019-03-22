@@ -173,7 +173,7 @@ function processData(){
         
     }
 
-    window.open(`https://us-central1-scouting-2019-team-100.cloudfunctions.net/ingress?type="pit"&data=${JSON.stringify(data)}`,'_blank');
+    window.open(`https://us-central1-scouting-2019-team-100.cloudfunctions.net/ingress?type=pit&data=${JSON.stringify(data)}`,'_blank');
 }
 function loadPage(){
     refreshPage();
