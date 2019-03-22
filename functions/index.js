@@ -7,6 +7,7 @@ admin.firestore().settings({timestampsInSnapshots: true});
 
 // TODO: get config from database
 const EVENT = "2019cada";
+
 const MatchFields =  {
     HatchRocket: {
         type: "array",

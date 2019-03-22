@@ -119,7 +119,7 @@ var ps = {
         },
         {
             "type": "num",
-            "prompt": "10a. How Many?",
+            "prompt": "10a. How Many? (mark 0 if do not support cargo)",
             "hint": "Enter Here"
         },
         {
@@ -135,12 +135,12 @@ var ps = {
         },
         {
             "type": "num",
-            "prompt": "11a. How Many?",
+            "prompt": "11a. How Many? (mark 0 if do not support cargo)",
             "hint": "Enter Here"
         },
         {
             "type": "option",
-            "prompt": "12. Starting Pos",
+            "prompt": "12. Starting Pos [Mark same as above]",
             "options": [
                 "Level 1",
                 "Level 2 and Level 1"
@@ -148,7 +148,7 @@ var ps = {
         },
         {
             "type": "option",
-            "prompt": "13. Exchange",
+            "prompt": "13. Driver Station Loading",
             "options": [
                 "No",
                 "Yes (unreliable)",
